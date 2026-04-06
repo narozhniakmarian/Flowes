@@ -7,7 +7,7 @@
 /* ── Outer section ────────────────────────────────────────── */
 .section {
   width: 100%;
-  padding: 80px 24px;
+  margin-top: 32px;
 }
 
 /* ── Glass-card container ─────────────────────────────────── */

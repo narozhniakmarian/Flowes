@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useTranslations } from "@/lib/useTranslations";
 import styles from "./Footer.module.css";
 
@@ -43,9 +44,7 @@ function TikTokIcon() {
 export function Footer() {
   const t = useTranslations();
 
-  const handleNavClick = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
+
 
   return (
     <footer className={styles.footer}>
@@ -54,7 +53,7 @@ export function Footer() {
 
           {/* ── Column 1: Brand ── */}
           <div className={styles.column}>
-            <div className={styles.brand}>
+            <Link href="/" className={styles.brand}>
               <Image
                 src="/intro/logo.PNG"
                 alt="FlowerS logo"
@@ -63,7 +62,7 @@ export function Footer() {
                 className={styles.logo}
               />
               <span className={styles.brandName}>FlowerS</span>
-            </div>
+            </Link>
 
             <p className={styles.tagline}>
               {t("footer.tagline", "Eleganckie bukiety i kompozycje z dostawą.")}
@@ -104,14 +103,13 @@ export function Footer() {
             </h3>
             <nav className={styles.navList} aria-label="Footer navigation">
               {NAV_LINKS.map((link) => (
-                <button
+                <Link
                   key={link.id}
-                  type="button"
+                  href={link.id === "contacts" ? "/contacts" : `/#${link.id}`}
                   className={styles.navLink}
-                  onClick={() => handleNavClick(link.id)}
                 >
                   {t(link.labelKey)}
-                </button>
+                </Link>
               ))}
             </nav>
           </div>
@@ -156,12 +154,12 @@ export function Footer() {
         <div className={styles.bottom}>
           <span className={styles.copyright}>© 2025 FlowerS</span>
           <div className={styles.legalLinks}>
-            <a href="#" className={styles.legalLink}>
+            <Link href="/privacy-policy" className={styles.legalLink}>
               {t("footer.privacy", "Polityka prywatności")}
-            </a>
-            <a href="#" className={styles.legalLink}>
+            </Link>
+            <Link href="/terms-of-use" className={styles.legalLink}>
               {t("footer.terms", "Regulamin")}
-            </a>
+            </Link>
           </div>
         </div>
       </div>

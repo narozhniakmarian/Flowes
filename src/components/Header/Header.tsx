@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/providers/LanguageProvider";
 import { useTranslations } from "@/lib/useTranslations";
@@ -31,13 +32,8 @@ export function Header() {
   const t = useTranslations();
   const { totalItems, openCart } = useCart();
 
-  const handleNavClick = (targetId: string) => {
+  const handleNavClick = () => {
     setIsOpen(false);
-    if (typeof window === "undefined") return;
-    const section = document.getElementById(targetId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
   };
 
   const toggleMenu = () => {
@@ -66,7 +62,7 @@ export function Header() {
   return (
     <header className={styles.siteHeader} data-open={isOpen ? "true" : "false"}>
       <div className={styles.headerInner}>
-        <div className={styles.brand}>
+        <Link href="/" className={styles.brand} onClick={() => setIsOpen(false)}>
           <Image
             src="/intro/logo.PNG"
             alt="FlowerS"
@@ -75,18 +71,18 @@ export function Header() {
             priority
           />
           <span className={styles.brandName}>FlowerS</span>
-        </div>
+        </Link>
 
         <nav className={styles.navDesktop} aria-label={t("nav.aria")}>
           {NAV_ITEMS.map((item) => (
-            <button
+            <Link
               key={item.id}
-              type="button"
+              href={item.id === "contacts" ? "/contacts" : `/#${item.id}`}
               className={styles.navLink}
-              onClick={() => handleNavClick(item.id)}
+              onClick={handleNavClick}
             >
               {t(item.labelKey)}
-            </button>
+            </Link>
           ))}
         </nav>
 
@@ -163,14 +159,14 @@ export function Header() {
         </button>
         <div className={styles.mobileNav}>
           {NAV_ITEMS.map((item) => (
-            <button
+            <Link
               key={item.id}
-              type="button"
+              href={item.id === "contacts" ? "/contacts" : `/#${item.id}`}
               className={styles.mobileLink}
-              onClick={() => handleNavClick(item.id)}
+              onClick={handleNavClick}
             >
               {t(item.labelKey)}
-            </button>
+            </Link>
           ))}
         </div>
         <div className={styles.mobileSocial}>

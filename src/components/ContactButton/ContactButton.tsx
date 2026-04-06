@@ -143,33 +143,7 @@ export function ContactButton() {
           </a>
         ))}
 
-        <button
-          type="button"
-          aria-label="Close"
-          className={`${styles.menuItem} ${styles.closeBtn} ${isOpen ? styles.menuItemVisible : ""}`}
-          style={{
-            backgroundColor: "#f55946",
-            transitionDelay: isOpen
-              ? `${CONTACT_OPTIONS.length * 50}ms`
-              : "0ms",
-          }}
-          onClick={close}
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M18 6L6 18M6 6l12 12"
-              stroke="white"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-            />
-          </svg>
-        </button>
+
       </div>
 
       <button
@@ -179,7 +153,34 @@ export function ContactButton() {
         aria-label={isOpen ? "Close contact menu" : "Open contact menu"}
         aria-expanded={isOpen}
       >
-        <ChatIcon />
+        {isOpen ? (
+          <span style={{ 
+            display: "flex", 
+            alignItems: "center", 
+            justifyContent: "center", 
+            width: "56px", 
+            height: "56px", 
+            borderRadius: "50%", 
+            background: "linear-gradient(135deg, #f55946 0%, #f6525c 100%)" 
+          }}>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M18 6L6 18M6 6l12 12"
+                stroke="white"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+              />
+            </svg>
+          </span>
+        ) : (
+          <PhoneIcon />
+        )}
       </button>
     </div>
   );
