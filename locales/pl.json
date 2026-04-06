@@ -120,5 +120,16 @@
     "block3_kicker": "Dla Ciebie",
     "block3_title": "Dostawa prosto do drzwi",
     "block3_text": "Dostarczamy kwiaty na terenie Opola i okolic. Szybko, bezpiecznie i z uśmiechem — bo każda chwila zasługuje na piękne kwiaty."
+  },
+  "footer": {
+    "tagline": "Eleganckie bukiety i kompozycje z dostawą w Opolu.",
+    "nav_title": "Nawigacja",
+    "contact_title": "Kontakt",
+    "address_label": "Adres",
+    "phone": "+48 123 456 789",
+    "email": "flowers@opole.pl",
+    "address": "Opole, Polska",
+    "privacy": "Polityka prywatności",
+    "terms": "Regulamin"
   }
 }

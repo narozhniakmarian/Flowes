@@ -1,4 +1,4 @@
-import { NextResponse } from "next/response";
+import { NextResponse } from "next/server";
 import dbConnect from "@/lib/mongodb";
 import Product from "@/models/Product";
 import data from "@/app/data.json";

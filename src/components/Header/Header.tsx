@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLanguage } from "@/providers/LanguageProvider";
 import { useTranslations } from "@/lib/useTranslations";
 import { useCart } from "@/providers/CartProvider";
@@ -51,6 +51,17 @@ export function Header() {
   const handleLanguageToggle = () => {
     setLocale(locale === "pl" ? "ua" : "pl");
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
   return (
     <header className={styles.siteHeader} data-open={isOpen ? "true" : "false"}>

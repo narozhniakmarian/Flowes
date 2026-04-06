@@ -69,7 +69,7 @@ export function ProductsSection() {
 
       return categoryMatch && priceMatch;
     });
-  }, [filters, locale]);
+  }, [filters, locale, products]);
 
   return (
     <section id="products" className={styles.section}>

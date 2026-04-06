@@ -110,11 +110,17 @@ export function CartDrawer() {
   const drawerRef = useRef<HTMLDivElement>(null);
   const firstFocusRef = useRef<HTMLButtonElement>(null);
 
-  // Focus trap
+  // Focus trap and scroll lock
   useEffect(() => {
     if (isOpen) {
+      document.body.style.overflow = "hidden";
       firstFocusRef.current?.focus();
+    } else {
+      document.body.style.overflow = "";
     }
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isOpen]);
 
   // Close on Escape
@@ -274,7 +280,7 @@ export function CartDrawer() {
           <form
             onSubmit={handleSubmit}
             noValidate
-            style={{ display: "contents" }}
+            className={styles.form}
           >
             {/* Items */}
             <ul className={styles.items} role="list">

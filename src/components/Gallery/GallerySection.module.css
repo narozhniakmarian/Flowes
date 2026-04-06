@@ -4,7 +4,7 @@
     width: 100%;
     max-width: 980px;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: 0;
 }
 
 /* ─── Card wrapper ─── */

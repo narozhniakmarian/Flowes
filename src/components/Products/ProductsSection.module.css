@@ -3,7 +3,11 @@
     width: 100%;
     max-width: 980px;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: 0;
+    background: rgba(254, 255, 223, 0.4);
+    border-radius: 32px;
+    padding: 32px;
+    backdrop-filter: blur(10px);
 }
 
 .sectionWrapper {
