@@ -1,0 +1,11 @@
+background-section #FEFFDF
+
+foreground #645643
+
+    accent #F55946
+
+hover-accent #F6525C
+
+shadow #322B22
+
+border #FF8562

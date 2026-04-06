@@ -1,0 +1,371 @@
+/* ─── Sidebar wrapper (desktop) ─── */
+.sidebar {
+    position: absolute;
+    left: -268px;
+    top: 0;
+    width: 244px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ─── Panel card ─── */
+.panel {
+    background: rgba(254, 255, 223, 0.8);
+    backdrop-filter: blur(16px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 133, 98, 0.22);
+    box-shadow: 0 8px 32px rgba(50, 43, 34, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ─── Panel title ─── */
+.panelTitle {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--color-accent);
+    font-weight: 700;
+    margin: 0 0 4px;
+}
+
+/* ─── Category group ─── */
+.categoryGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.categoryGroupHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    cursor: pointer;
+    padding: 6px 0;
+    background: none;
+    border: 0;
+    width: 100%;
+    text-align: left;
+    color: var(--color-text);
+}
+
+.categoryGroupLabel {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.categoryGroupIcon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: rgba(100, 86, 67, 0.5);
+    transition: transform 0.2s ease;
+}
+
+.categoryGroupIconOpen {
+    transform: rotate(180deg);
+}
+
+.categoryList {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-left: 4px;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.25s ease;
+}
+
+.categoryListOpen {
+    max-height: 400px;
+}
+
+.categoryItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.categoryItem:hover {
+    background: rgba(245, 89, 70, 0.08);
+}
+
+.categoryItemActive {
+    background: rgba(245, 89, 70, 0.12);
+}
+
+.categoryCheckbox {
+    width: 16px;
+    height: 16px;
+    border-radius: 5px;
+    border: 1.5px solid rgba(255, 133, 98, 0.5);
+    background: transparent;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.categoryCheckboxActive {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.categoryCheckboxTick {
+    width: 8px;
+    height: 8px;
+    color: #fff;
+}
+
+.categoryLabel {
+    font-size: 13px;
+    color: var(--color-text);
+    line-height: 1.35;
+}
+
+.categoryCount {
+    margin-left: auto;
+    font-size: 11px;
+    color: rgba(100, 86, 67, 0.5);
+    background: rgba(100, 86, 67, 0.08);
+    border-radius: 999px;
+    padding: 1px 7px;
+}
+
+/* ─── Divider ─── */
+.divider {
+    height: 1px;
+    background: rgba(255, 133, 98, 0.18);
+    margin: 0;
+}
+
+/* ─── Price range ─── */
+.priceBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.priceRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.priceLabel {
+    font-size: 12px;
+    color: rgba(100, 86, 67, 0.6);
+}
+
+.priceValue {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+/* MUI Slider overrides */
+.sliderRoot {
+    color: var(--color-accent) !important;
+    height: 4px !important;
+}
+
+.sliderTrack {
+    border: none !important;
+}
+
+.sliderThumb {
+    width: 18px !important;
+    height: 18px !important;
+    background: #fff !important;
+    border: 2px solid var(--color-accent) !important;
+    box-shadow: 0 2px 8px rgba(245, 89, 70, 0.3) !important;
+}
+
+.sliderThumb:hover {
+    box-shadow: 0 2px 16px rgba(245, 89, 70, 0.45) !important;
+}
+
+/* ─── Reset button ─── */
+.resetBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border: 1px solid rgba(255, 133, 98, 0.4);
+    border-radius: 999px;
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-text);
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+    width: 100%;
+}
+
+.resetBtn:hover {
+    background: rgba(245, 89, 70, 0.08);
+    transform: translateY(-1px);
+}
+
+/* ─── Promo banner ─── */
+.promoBanner {
+    border-radius: 20px;
+    overflow: hidden;
+    background: linear-gradient(
+        135deg,
+        rgba(245, 89, 70, 0.85) 0%,
+        rgba(246, 82, 92, 0.75) 100%
+    );
+    border: 1px solid rgba(245, 89, 70, 0.3);
+    box-shadow: 0 8px 28px rgba(245, 89, 70, 0.22);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.promoBannerTag {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 700;
+}
+
+.promoBannerTitle {
+    font-size: 16px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.25;
+    margin: 0;
+}
+
+.promoBannerText {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ─── Mobile toggle button ─── */
+.mobileToggle {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 30;
+    background: var(--color-accent);
+    color: #fff;
+    border: 0;
+    border-radius: 0 12px 12px 0;
+    padding: 12px 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    writing-mode: vertical-lr;
+    letter-spacing: 0.08em;
+    box-shadow: 4px 0 20px rgba(245, 89, 70, 0.35);
+    transition: padding 0.2s ease, background 0.2s ease;
+}
+
+.mobileToggle:hover {
+    background: var(--color-accent-hover);
+    padding: 14px 12px;
+}
+
+/* ─── Mobile overlay panel ─── */
+.mobileOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    background: rgba(50, 43, 34, 0.6);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.mobileOverlayOpen {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobilePanel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: min(320px, 92vw);
+    height: 100%;
+    background: rgba(254, 255, 223, 0.97);
+    backdrop-filter: blur(18px);
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    overflow-y: auto;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mobilePanelOpen {
+    transform: translateX(0);
+}
+
+.mobilePanelHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 4px;
+}
+
+.mobilePanelTitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.mobilePanelClose {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 133, 98, 0.4);
+    background: transparent;
+    color: var(--color-text);
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 1100px) {
+    .sidebar {
+        display: none;
+    }
+
+    .mobileToggle {
+        display: flex;
+    }
+
+    .mobileOverlay {
+        display: block;
+    }
+}

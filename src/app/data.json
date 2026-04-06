@@ -1,0 +1,643 @@
+[
+  {
+    "id": "march8-001",
+    "image": "https://res.cloudinary.com/dodl6tqwz/image/upload/q_auto/f_auto/v1775487743/img1834_loyytd.jpg",
+    "name_ua": "Весняні Тюльпани",
+    "name_pl": "Wiosenne Tulipany",
+    "category_ua": "Квіти до 8 березня",
+    "category_pl": "Kwiaty na 8 marca",
+    "price": 720,
+    "ingredients": [
+      {
+        "name_ua": "Тюльпан білий",
+        "name_pl": "Tulipan biały",
+        "amount": "25 шт"
+      },
+      {
+        "name_ua": "Папір дизайнерський",
+        "name_pl": "Papier dekoracyjny",
+        "amount": "1 уп"
+      },
+      {
+        "name_ua": "Стрічка атласна",
+        "name_pl": "Wstążka atłasowa",
+        "amount": "1 шт"
+      }
+    ],
+    "tags_ua": ["тюльпани", "8 березня", "весняний букет", "подарунок"],
+    "tags_pl": ["tulipany", "8 marca", "wiosenny bukiet", "prezent"],
+    "description_ua": "Ніжний букет білих тюльпанів у святковому оформленні — ідеальний подарунок до 8 березня.",
+    "description_pl": "Delikatny bukiet białych tulipanów w eleganckim opakowaniu — idealny prezent na 8 marca.",
+    "seo_ua": "Купити букет білих тюльпанів до 8 березня. Ніжний весняний подарунок для особливої жінки.",
+    "seo_pl": "Kup bukiet białych tulipanów na 8 marca. Delikatny wiosenny prezent dla wyjątkowej kobiety."
+  },
+  {
+    "id": "march8-002",
+    "image": "https://res.cloudinary.com/dodl6tqwz/image/upload/q_auto/f_auto/v1775487743/img1756_hfrsjw.jpg",
+    "name_ua": "Весняна Ніжність",
+    "name_pl": "Wiosenna Delikatność",
+    "category_ua": "Квіти до 8 березня",
+    "category_pl": "Kwiaty na 8 marca",
+    "price": 980,
+    "ingredients": [
+      {
+        "name_ua": "Троянда рожева",
+        "name_pl": "Róża różowa",
+        "amount": "11 шт"
+      },
+      {
+        "name_ua": "Тюльпан білий",
+        "name_pl": "Tulipan biały",
+        "amount": "9 шт"
+      },
+      { "name_ua": "Зелень рускус", "name_pl": "Ruskus", "amount": "3 гілки" },
+      {
+        "name_ua": "Папір крафтовий",
+        "name_pl": "Papier kraft",
+        "amount": "1 уп"
+      }
+    ],
+    "tags_ua": ["троянди", "тюльпани", "весняний букет", "8 березня"],
+    "tags_pl": ["róże", "tulipany", "wiosenny bukiet", "8 marca"],
+    "description_ua": "Ніжне поєднання рожевих троянд і білих тюльпанів створює святковий весняний настрій.",
+    "description_pl": "Delikatne połączenie różowych róż i białych tulipanów tworzy wyjątkowy wiosenny nastrój.",
+    "seo_ua": "Замовити весняний букет із троянд і тюльпанів до 8 березня. Ніжний та стильний подарунок.",
+    "seo_pl": "Zamów wiosenny bukiet z róż i tulipanów na 8 marca. Delikatny i elegancki prezent."
+  },
+  {
+    "id": "march8-003",
+    "image": "https://res.cloudinary.com/dodl6tqwz/image/upload/q_auto/f_auto/v1775487743/img1816_x3h1vn.jpg",
+    "name_ua": "Рожеві Тюльпани",
+    "name_pl": "Różowe Tulipany",
+    "category_ua": "Квіти до 8 березня",
+    "category_pl": "Kwiaty na 8 marca",
+    "price": 760,
+    "ingredients": [
+      {
+        "name_ua": "Тюльпан рожевий",
+        "name_pl": "Tulipan różowy",
+        "amount": "21 шт"
+      },
+      {
+        "name_ua": "Папір рожевий",
+        "name_pl": "Papier różowy",
+        "amount": "1 уп"
+      },
+      {
+        "name_ua": "Стрічка біла",
+        "name_pl": "Wstążka biała",
+        "amount": "1 шт"
+      }
+    ],
+    "tags_ua": ["рожеві тюльпани", "весняний букет", "8 березня"],
+    "tags_pl": ["różowe tulipany", "wiosenny bukiet", "8 marca"],
+    "description_ua": "Яскравий букет рожевих тюльпанів — символ весни, ніжності та жіночності.",
+    "description_pl": "Wyrazisty bukiet różowych tulipanów — symbol wiosny, delikatności i kobiecości.",
+    "seo_ua": "Купити рожеві тюльпани до 8 березня. Стильний весняний букет для подарунка.",
+    "seo_pl": "Kup różowe tulipany na 8 marca. Stylowy wiosenny bukiet na prezent."
+  },
+  {
+    "id": "march8-004",
+    "image": "https://res.cloudinary.com/dodl6tqwz/image/upload/q_auto/f_auto/v1775487742/img1893_qxgega.jpg",
+    "name_ua": "Ромашковий Весняний",
+    "name_pl": "Wiosenny Rumiankowy",
+    "category_ua": "Квіти до 8 березня",
+    "category_pl": "Kwiaty na 8 marca",
+    "price": 650,
+    "ingredients": [
+      { "name_ua": "Ромашка", "name_pl": "Rumianek", "amount": "25 шт" },
+      {
+        "name_ua": "Папір крафтовий",
+        "name_pl": "Papier kraft",
+        "amount": "1 уп"
+      },
+      {
+        "name_ua": "Стрічка кремова",
+        "name_pl": "Wstążka kremowa",
+        "amount": "1 шт"
+      }
+    ],
+    "tags_ua": ["ромашки", "весняний букет", "натуральний стиль", "8 березня"],
+    "tags_pl": ["rumianki", "wiosenny bukiet", "naturalny styl", "8 marca"],
+    "description_ua": "Світлий та життєрадісний букет ромашок — чудовий вибір для весняного свята.",
+    "description_pl": "Jasny i radosny bukiet rumianków — doskonały wybór na wiosenne święto.",
+    "seo_ua": "Купити букет ромашок до 8 березня. Натуральна та свіжа весняна композиція.",
+    "seo_pl": "Kup bukiet rumianków na 8 marca. Naturalna i świeża wiosenna kompozycja."
+  },
+  {
+    "id": "basket-001",
+    "image": "https://res.cloudinary.com/dodl6tqwz/image/upload/q_auto/f_auto/v1775487839/img961_iqprp5.jpg",
+    "name_ua": "Фіолетова Ніжність",
+    "name_pl": "Fioletowa Delikatność",
+    "category_ua": "Кошик квітів",
+    "category_pl": "Kosz kwiatów",
+    "price": 890,
+    "ingredients": [
+      {
+        "name_ua": "Еустома фіолетова",
+        "name_pl": "Eustoma fioletowa",
+        "amount": "7 шт"
+      },
+      {
+        "name_ua": "Еустома біла",
+        "name_pl": "Eustoma biała",
+        "amount": "6 шт"
+      },
+      { "name_ua": "Гіпсофіла", "name_pl": "Gipsówka", "amount": "0.5 уп" },
+      { "name_ua": "Папороть", "name_pl": "Paproć", "amount": "3 гілки" }
+    ],
+    "tags_ua": [
+      "кошик квітів",
+      "фіолетові квіти",
+      "ніжна композиція",
+      "подарунковий кошик"
+    ],
+    "tags_pl": [
+      "kosz kwiatów",
+      "fioletowe kwiaty",
+      "delikatna kompozycja",
+      "kosz prezentowy"
+    ],
+    "description_ua": "Вишукана композиція у фіолетово-білих тонах створює атмосферу спокою та елегантності. Ідеальний подарунок для будь-якої нагоди.",
+    "description_pl": "Elegancka kompozycja w fioletowo-białych odcieniach tworzy atmosferę spokoju i klasy. Idealny prezent na każdą okazję.",
+    "seo_ua": "Купити кошик квітів з еустомою. Ніжна фіолетово-біла композиція для подарунка чи декору.",
+    "seo_pl": "Kup kosz kwiatów z eustomą. Delikatna fioletowo-biała kompozycja na prezent lub dekorację."
+  },
+  {
+    "id": "basket-002",
+    "image": "https://res.cloudinary.com/dodl6tqwz/image/upload/q_auto/f_auto/v1775487838/img1728_n8j0be.jpg",
+    "name_ua": "Екзотичний Шарм",
+    "name_pl": "Egzotyczny Urok",
+    "category_ua": "Кошик квітів",
+    "category_pl": "Kosz kwiatów",
+    "price": 1150,
+    "ingredients": [
+      {
+        "name_ua": "Орхідея цимбідіум",
+        "name_pl": "Storczyk cymbidium",
+        "amount": "3 шт"
+      },
+      {
+        "name_ua": "Троянда рожева",
+        "name_pl": "Róża różowa",
+        "amount": "6 шт"
+      },
+      { "name_ua": "Гіпсофіла", "name_pl": "Gipsówka", "amount": "0.5 уп" },
+      {
+        "name_ua": "Зелень декоративна",
+        "name_pl": "Zieleń dekoracyjna",
+        "amount": "4 гілки"
+      }
+    ],
+    "tags_ua": ["екзотичний кошик", "орхідеї", "рожеві троянди", "подарунок"],
+    "tags_pl": ["egzotyczny kosz", "storczyki", "różowe róże", "prezent"],
+    "description_ua": "Яскравий та стильний кошик із поєднанням екзотичних орхідей та ніжних троянд. Підходить для святкових подій та особливих моментів.",
+    "description_pl": "Wyrazisty i elegancki kosz z połączeniem egzotycznych storczyków i delikatnych róż. Idealny na wyjątkowe okazje.",
+    "seo_ua": "Замовити кошик квітів з орхідеями та трояндами. Екзотична композиція для особливих подій.",
+    "seo_pl": "Zamów kosz kwiatów z orchideami i różami. Egzotyczna kompozycja na wyjątkowe okazje."
+  },
+  {
+    "id": "basket-003",
+    "image": "https://res.cloudinary.com/dodl6tqwz/image/upload/q_auto/f_auto/v1775487837/img443_kxqxrw.jpg",
+    "name_ua": "Рожевий Настрій",
+    "name_pl": "Różowy Nastrój",
+    "category_ua": "Кошик квітів",
+    "category_pl": "Kosz kwiatów",
+    "price": 760,
+    "ingredients": [
+      {
+        "name_ua": "Троянда рожева",
+        "name_pl": "Róża różowa",
+        "amount": "8 шт"
+      },
+      {
+        "name_ua": "Хризантема рожева",
+        "name_pl": "Chryzantema różowa",
+        "amount": "5 шт"
+      },
+      { "name_ua": "Гіпсофіла", "name_pl": "Gipsówka", "amount": "0.5 уп" },
+      { "name_ua": "Зелень рускус", "name_pl": "Ruskus", "amount": "3 гілки" }
+    ],
+    "tags_ua": ["рожевий кошик", "квітковий подарунок", "ніжні квіти"],
+    "tags_pl": ["różowy kosz", "kwiatowy prezent", "delikatne kwiaty"],
+    "description_ua": "Ніжний та яскравий кошик у рожевих відтінках створює святковий настрій і дарує тепло.",
+    "description_pl": "Delikatny i radosny kosz w różowych odcieniach tworzy świąteczny nastrój i dodaje ciepła.",
+    "seo_ua": "Купити рожевий кошик квітів. Ніжна композиція з троянд та хризантем.",
+    "seo_pl": "Kup różowy kosz kwiatów. Delikatna kompozycja z róż i chryzantem."
+  },
+  {
+    "id": "basket-004",
+    "image": "https://res.cloudinary.com/dodl6tqwz/image/upload/q_auto/f_auto/v1775487837/img438_i8g0hg.jpg",
+    "name_ua": "Ромашкове Сонце",
+    "name_pl": "Słoneczne Rumianki",
+    "category_ua": "Кошик квітів",
+    "category_pl": "Kosz kwiatów",
+    "price": 690,
+    "ingredients": [
+      { "name_ua": "Ромашка", "name_pl": "Rumianek", "amount": "15 шт" },
+      {
+        "name_ua": "Зелень декоративна",
+        "name_pl": "Zieleń dekoracyjna",
+        "amount": "4 гілки"
+      },
+      {
+        "name_ua": "Декоративна метелик",
+        "name_pl": "Ozdobny motyl",
+        "amount": "1 шт"
+      }
+    ],
+    "tags_ua": [
+      "ромашки",
+      "кошик квітів",
+      "літній настрій",
+      "натуральний стиль"
+    ],
+    "tags_pl": ["rumianki", "kosz kwiatów", "letni nastrój", "naturalny styl"],
+    "description_ua": "Світла та життєрадісна композиція з ромашок у плетеному кошику. Ідеальний варіант для подарунка або декору.",
+    "description_pl": "Jasna i radosna kompozycja z rumianków w wiklinowym koszu. Idealna na prezent lub dekorację.",
+    "seo_ua": "Купити кошик з ромашками. Літня композиція у натуральному стилі.",
+    "seo_pl": "Kup kosz z rumiankami. Letnia kompozycja w naturalnym stylu."
+  },
+  {
+    "id": "bouquet-001",
+    "image": "https://res.cloudinary.com/dodl6tqwz/image/upload/q_auto/f_auto/v1775487779/img1627_b6wkep.jpg",
+    "name_ua": "Ніжність Айворі",
+    "name_pl": "Delikatność Ivory",
+    "category_ua": "Весільні букети",
+    "category_pl": "Bukiety ślubne",
+    "price": 1650,
+    "ingredients": [
+      {
+        "name_ua": "Троянда айворі",
+        "name_pl": "Róża ivory",
+        "amount": "11 шт"
+      },
+      {
+        "name_ua": "Еустома біла",
+        "name_pl": "Eustoma biała",
+        "amount": "5 шт"
+      },
+      { "name_ua": "Гіпсофіла", "name_pl": "Gipsówka", "amount": "0.5 уп" },
+      {
+        "name_ua": "Зелень салал",
+        "name_pl": "Zieleń salal",
+        "amount": "3 гілки"
+      }
+    ],
+    "tags_ua": ["ніжний букет", "айворі", "весільний", "класичний стиль"],
+    "tags_pl": ["delikatny bukiet", "ivory", "ślubny", "styl klasyczny"],
+    "description_ua": "Ніжний весільний букет у світлих тонах створює атмосферу чистоти та елегантності. Ідеальний вибір для класичної церемонії.",
+    "description_pl": "Delikatny ślubny bukiet w jasnych odcieniach tworzy atmosferę czystości i elegancji. Idealny wybór na klasyczną ceremonię.",
+    "seo_ua": "Купити весільний букет у стилі айворі. Ніжна композиція з троянд та еустоми — ідеальний вибір для класичного весілля.",
+    "seo_pl": "Kup bukiet ślubny w odcieniach ivory. Delikatna kompozycja z róż i eustomy — idealna na klasyczny ślub."
+  },
+  {
+    "id": "bouquet-002",
+    "image": "https://res.cloudinary.com/dodl6tqwz/image/upload/q_auto/f_auto/v1775487778/img1637_euqw3s.jpg",
+    "name_ua": "Блакитна Гармонія",
+    "name_pl": "Błękitna Harmonia",
+    "category_ua": "Авторські букети",
+    "category_pl": "Bukiety autorskie",
+    "price": 1850,
+    "ingredients": [
+      {
+        "name_ua": "Гортензія блакитна",
+        "name_pl": "Hortensja niebieska",
+        "amount": "1 шт"
+      },
+      { "name_ua": "Троянда біла", "name_pl": "Róża biała", "amount": "7 шт" },
+      {
+        "name_ua": "Еустома біла",
+        "name_pl": "Eustoma biała",
+        "amount": "4 шт"
+      },
+      {
+        "name_ua": "Піттоспорум варієгатний",
+        "name_pl": "Pittosporum variegatum",
+        "amount": "3 гілки"
+      }
+    ],
+    "tags_ua": [
+      "блакитний букет",
+      "гортензія",
+      "авторський букет",
+      "свіжий стиль"
+    ],
+    "tags_pl": [
+      "niebieski bukiet",
+      "hortensja",
+      "bukiet autorski",
+      "świeży styl"
+    ],
+    "description_ua": "Стильний букет у поєднанні білого та блакитного кольорів створює відчуття легкості та свіжості.",
+    "description_pl": "Stylowy bukiet w połączeniu bieli i błękitu tworzy poczucie lekkości i świeżości.",
+    "seo_ua": "Замовити стильний букет з блакитною гортензією. Елегантна композиція для весілля та особливих подій.",
+    "seo_pl": "Zamów stylowy bukiet z niebieską hortensją. Elegancka kompozycja na ślub i wyjątkowe okazje."
+  },
+  {
+    "id": "bouquet-003",
+    "image": "https://res.cloudinary.com/dodl6tqwz/image/upload/q_auto/f_auto/v1775487778/img1635_fibat7.jpg",
+    "name_ua": "Осіння Класика",
+    "name_pl": "Jesienna Klasyka",
+    "category_ua": "Весільні букети",
+    "category_pl": "Bukiety ślubne",
+    "price": 1750,
+    "ingredients": [
+      {
+        "name_ua": "Троянда кремова",
+        "name_pl": "Róża kremowa",
+        "amount": "9 шт"
+      },
+      { "name_ua": "Бавовна", "name_pl": "Bawełna", "amount": "2 гілки" },
+      { "name_ua": "Евкаліпт", "name_pl": "Eukaliptus", "amount": "4 гілки" },
+      {
+        "name_ua": "Гіперикум зелений",
+        "name_pl": "Hiperikum zielony",
+        "amount": "5 шт"
+      }
+    ],
+    "tags_ua": [
+      "осінній букет",
+      "кремові троянди",
+      "бавовна",
+      "натуральний стиль"
+    ],
+    "tags_pl": ["jesienny bukiet", "kremowe róże", "bawełna", "naturalny styl"],
+    "description_ua": "Теплий та затишний букет із кремових троянд, бавовни та евкаліпту.",
+    "description_pl": "Ciepły i przytulny bukiet z kremowych róż, bawełny i eukaliptusa.",
+    "seo_ua": "Осінній весільний букет із кремових троянд та бавовни. Натуральна композиція для стильних наречених.",
+    "seo_pl": "Jesienny bukiet ślubny z kremowych róż i bawełny. Naturalna kompozycja dla stylowych panien młodych."
+  },
+  {
+    "id": "bouquet-004",
+    "image": "https://res.cloudinary.com/dodl6tqwz/image/upload/q_auto/f_auto/v1775487777/img1399_fhjuqg.jpg",
+    "name_ua": "Рожева Мрія",
+    "name_pl": "Różowe Marzenie",
+    "category_ua": "Весільні букети",
+    "category_pl": "Bukiety ślubne",
+    "price": 1590,
+    "ingredients": [
+      {
+        "name_ua": "Троянда рожева",
+        "name_pl": "Róża różowa",
+        "amount": "10 шт"
+      },
+      {
+        "name_ua": "Еустома біла",
+        "name_pl": "Eustoma biała",
+        "amount": "6 шт"
+      },
+      { "name_ua": "Зелень рускус", "name_pl": "Ruskus", "amount": "3 гілки" }
+    ],
+    "tags_ua": ["рожевий букет", "романтичний стиль", "ніжні квіти"],
+    "tags_pl": ["różowy bukiet", "romantyczny styl", "delikatne kwiaty"],
+    "description_ua": "Романтичний букет у рожевих тонах підкреслює ніжність та жіночність.",
+    "description_pl": "Romantyczny bukiet w różowych odcieniach podkreśla delikatność i kobiecość.",
+    "seo_ua": "Романтичний весільний букет у рожевих відтінках. Ідеальний вибір для ніжного образу нареченої.",
+    "seo_pl": "Romantyczny bukiet ślubny w różowych odcieniach. Idealny wybór dla delikatnej panny młodej."
+  },
+  {
+    "id": "bouquet-005",
+    "image": "https://res.cloudinary.com/dodl6tqwz/image/upload/q_auto/f_auto/v1775487777/img521_k4le3b.jpg",
+    "name_ua": "Кремова Елегантність",
+    "name_pl": "Kremowa Elegancja",
+    "category_ua": "Весільні букети",
+    "category_pl": "Bukiety ślubne",
+    "price": 1490,
+    "ingredients": [
+      {
+        "name_ua": "Троянда кремова",
+        "name_pl": "Róża kremowa",
+        "amount": "13 шт"
+      },
+      { "name_ua": "Евкаліпт", "name_pl": "Eukaliptus", "amount": "2 гілки" },
+      { "name_ua": "Гіпсофіла", "name_pl": "Gipsówka", "amount": "0.5 уп" }
+    ],
+    "tags_ua": ["кремовий букет", "елегантний стиль", "класика"],
+    "tags_pl": ["kremowy bukiet", "elegancki styl", "klasyka"],
+    "description_ua": "Стриманий та елегантний букет із кремових троянд — універсальний варіант для будь-якого стилю весілля.",
+    "description_pl": "Stonowany i elegancki bukiet z kremowych róż — uniwersalna propozycja na każdy styl ślubu.",
+    "seo_ua": "Кремовий весільний букет із троянд. Елегантна композиція для класичного та сучасного весілля.",
+    "seo_pl": "Kremowy bukiet ślubny z róż. Elegancka kompozycja na klasyczny lub nowoczesny ślub."
+  },
+  {
+    "id": "mothers-001",
+    "image": "https://res.cloudinary.com/dodl6tqwz/image/upload/q_auto/f_auto/v1775487703/img1642_xibqqk.jpg",
+    "name_ua": "Півонійна Ніжність",
+    "name_pl": "Piwoniowa Delikatność",
+    "category_ua": "День матері",
+    "category_pl": "Dzień Matki",
+    "price": 1150,
+    "ingredients": [
+      {
+        "name_ua": "Півонія рожева",
+        "name_pl": "Piwonia różowa",
+        "amount": "9 шт"
+      },
+      {
+        "name_ua": "Гіпсофіла рожева",
+        "name_pl": "Gipsówka różowa",
+        "amount": "0.5 уп"
+      },
+      {
+        "name_ua": "Папір дизайнерський",
+        "name_pl": "Papier dekoracyjny",
+        "amount": "1 уп"
+      }
+    ],
+    "tags_ua": ["півонії", "ніжний букет", "день матері", "рожеві квіти"],
+    "tags_pl": ["piwonie", "delikatny bukiet", "dzień matki", "różowe kwiaty"],
+    "description_ua": "Ніжний букет із рожевих півоній та гіпсофіли — теплий і щирий подарунок для найдорожчої людини.",
+    "description_pl": "Delikatny bukiet z różowych piwonii i gipsówki — ciepły i szczery prezent dla najważniejszej osoby.",
+    "seo_ua": "Купити букет півоній на День матері. Ніжна композиція у рожевих тонах.",
+    "seo_pl": "Kup bukiet piwonii na Dzień Matki. Delikatna kompozycja w różowych odcieniach."
+  },
+  {
+    "id": "mothers-002",
+    "image": "https://res.cloudinary.com/dodl6tqwz/image/upload/q_auto/f_auto/v1775487703/img1857_gmseah.jpg",
+    "name_ua": "Півонії для Мами",
+    "name_pl": "Piwonie dla Mamy",
+    "category_ua": "День матері",
+    "category_pl": "Dzień Matki",
+    "price": 980,
+    "ingredients": [
+      {
+        "name_ua": "Півонія рожева",
+        "name_pl": "Piwonia różowa",
+        "amount": "11 шт"
+      },
+      {
+        "name_ua": "Зелень декоративна",
+        "name_pl": "Zieleń dekoracyjna",
+        "amount": "3 гілки"
+      },
+      {
+        "name_ua": "Папір пастельний",
+        "name_pl": "Papier pastelowy",
+        "amount": "1 уп"
+      }
+    ],
+    "tags_ua": ["півонії", "рожевий букет", "день матері"],
+    "tags_pl": ["piwonie", "różowy bukiet", "dzień matki"],
+    "description_ua": "Святковий букет із рожевих півоній — символ любові, турботи та вдячності.",
+    "description_pl": "Świąteczny bukiet z różowych piwonii — symbol miłości, troski i wdzięczności.",
+    "seo_ua": "Замовити букет півоній до Дня матері. Святковий та ніжний подарунок.",
+    "seo_pl": "Zamów bukiet piwonii na Dzień Matki. Świąteczny i delikatny prezent."
+  },
+  {
+    "id": "mothers-003",
+    "image": "https://res.cloudinary.com/dodl6tqwz/image/upload/q_auto/f_auto/v1775487702/img1513_x7xzdb.jpg",
+    "name_ua": "Блакитна Лагуна",
+    "name_pl": "Błękitna Laguna",
+    "category_ua": "День матері",
+    "category_pl": "Dzień Matki",
+    "price": 720,
+    "ingredients": [
+      {
+        "name_ua": "Гіпсофіла блакитна",
+        "name_pl": "Gipsówka niebieska",
+        "amount": "1 уп"
+      },
+      {
+        "name_ua": "Папір синій",
+        "name_pl": "Papier niebieski",
+        "amount": "1 уп"
+      },
+      {
+        "name_ua": "Стрічка кремова",
+        "name_pl": "Wstążka kremowa",
+        "amount": "1 шт"
+      }
+    ],
+    "tags_ua": ["гіпсофіла", "блакитний букет", "день матері"],
+    "tags_pl": ["gipsówka", "niebieski bukiet", "dzień matki"],
+    "description_ua": "Ніжний букет блакитної гіпсофіли — легкий, повітряний та дуже стильний подарунок.",
+    "description_pl": "Delikatny bukiet niebieskiej gipsówki — lekki, subtelny i bardzo stylowy prezent.",
+    "seo_ua": "Купити букет гіпсофіли на День матері. Легкий та стильний варіант.",
+    "seo_pl": "Kup bukiet gipsówki na Dzień Matki. Lekka i stylowa propozycja."
+  },
+  {
+    "id": "mothers-004",
+    "image": "https://res.cloudinary.com/dodl6tqwz/image/upload/q_auto/f_auto/v1775487702/img1771_oigvqu.jpg",
+    "name_ua": "Весняний Подих",
+    "name_pl": "Wiosenny Oddech",
+    "category_ua": "День матері",
+    "category_pl": "Dzień Matki",
+    "price": 800,
+    "ingredients": [
+      {
+        "name_ua": "Гіпсофіла жовта",
+        "name_pl": "Gipsówka żółta",
+        "amount": "0.5 уп"
+      },
+      {
+        "name_ua": "Гіпсофіла блакитна",
+        "name_pl": "Gipsówka niebieska",
+        "amount": "0.5 уп"
+      },
+      {
+        "name_ua": "Папір пастельний",
+        "name_pl": "Papier pastelowy",
+        "amount": "1 уп"
+      }
+    ],
+    "tags_ua": ["гіпсофіла", "жовто-блакитний букет", "день матері"],
+    "tags_pl": ["gipsówka", "żółto-niebieski bukiet", "dzień matki"],
+    "description_ua": "Яскравий та символічний букет у жовто-блакитних тонах — теплий подарунок для мами.",
+    "description_pl": "Wyrazisty i symboliczny bukiet w żółto-niebieskich odcieniach — ciepły prezent dla mamy.",
+    "seo_ua": "Купити букет гіпсофіли до Дня матері. Яскрава весняна композиція.",
+    "seo_pl": "Kup bukiet gipsówki na Dzień Matki. Wyrazista wiosenna kompozycja."
+  },
+  {
+    "id": "mothers-005",
+    "image": "https://res.cloudinary.com/dodl6tqwz/image/upload/q_auto/f_auto/v1775487702/img1515_uhrylr.jpg",
+    "name_ua": "Лавандовий Бокс",
+    "name_pl": "Lawendowe Pudełko",
+    "category_ua": "День матері",
+    "category_pl": "Dzień Matki",
+    "price": 950,
+    "ingredients": [
+      {
+        "name_ua": "Троянда рожева",
+        "name_pl": "Róża różowa",
+        "amount": "7 шт"
+      },
+      {
+        "name_ua": "Еустома біла",
+        "name_pl": "Eustoma biała",
+        "amount": "5 шт"
+      },
+      {
+        "name_ua": "Альстромерія фіолетова",
+        "name_pl": "Alstremeria fioletowa",
+        "amount": "4 шт"
+      }
+    ],
+    "tags_ua": ["квітковий бокс", "рожеві троянди", "день матері"],
+    "tags_pl": ["flower box", "różowe róże", "dzień matki"],
+    "description_ua": "Стильний квітковий бокс у лавандових тонах — сучасний та елегантний подарунок.",
+    "description_pl": "Stylowy flower box w lawendowych odcieniach — nowoczesny i elegancki prezent.",
+    "seo_ua": "Купити квітковий бокс до Дня матері. Елегантна композиція у пастельних тонах.",
+    "seo_pl": "Kup flower box na Dzień Matki. Elegancka kompozycja w pastelowych kolorach."
+  },
+  {
+    "id": "mothers-006",
+    "image": "https://res.cloudinary.com/dodl6tqwz/image/upload/q_auto/f_auto/v1775487702/img1500_swicg5.jpg",
+    "name_ua": "Фіолетова Хмаринка",
+    "name_pl": "Fioletowa Chmurka",
+    "category_ua": "День матері",
+    "category_pl": "Dzień Matki",
+    "price": 680,
+    "ingredients": [
+      {
+        "name_ua": "Гіпсофіла фіолетова",
+        "name_pl": "Gipsówka fioletowa",
+        "amount": "1 уп"
+      },
+      { "name_ua": "Папір білий", "name_pl": "Papier biały", "amount": "1 уп" },
+      {
+        "name_ua": "Стрічка бежева",
+        "name_pl": "Wstążka beżowa",
+        "amount": "1 шт"
+      }
+    ],
+    "tags_ua": ["гіпсофіла", "фіолетовий букет", "день матері"],
+    "tags_pl": ["gipsówka", "fioletowy bukiet", "dzień matki"],
+    "description_ua": "Повітряний букет фіолетової гіпсофіли — ніжний та стильний подарунок.",
+    "description_pl": "Lekki bukiet fioletowej gipsówki — delikatny i stylowy prezent.",
+    "seo_ua": "Купити букет гіпсофіли на День матері. Ніжна фіолетова композиція.",
+    "seo_pl": "Kup bukiet gipsówki na Dzień Matki. Delikatna fioletowa kompozycja."
+  },
+  {
+    "id": "mothers-007",
+    "image": "https://res.cloudinary.com/dodl6tqwz/image/upload/q_auto/f_auto/v1775487702/img1774_air5du.jpg",
+    "name_ua": "Орхідея для Мами",
+    "name_pl": "Orchidea dla Mamy",
+    "category_ua": "День матері",
+    "category_pl": "Dzień Matki",
+    "price": 890,
+    "ingredients": [
+      {
+        "name_ua": "Орхідея фіолетова",
+        "name_pl": "Storczyk fioletowy",
+        "amount": "1 шт"
+      },
+      {
+        "name_ua": "Гіпсофіла мікс",
+        "name_pl": "Gipsówka mix",
+        "amount": "1 уп"
+      },
+      {
+        "name_ua": "Папір пастельний",
+        "name_pl": "Papier pastelowy",
+        "amount": "1 уп"
+      }
+    ],
+    "tags_ua": ["орхідея", "яскравий букет", "день матері"],
+    "tags_pl": ["storczyk", "wyrazisty bukiet", "dzień matki"],
+    "description_ua": "Яскравий букет із фіолетовою орхідеєю та міксом гіпсофіли — стильний подарунок для мами.",
+    "description_pl": "Wyrazisty bukiet z fioletową orchideą i mixem gipsówki — stylowy prezent dla mamy.",
+    "seo_ua": "Купити букет з орхідеєю до Дня матері. Яскрава та сучасна композиція.",
+    "seo_pl": "Kup bukiet z orchideą na Dzień Matki. Wyrazista i nowoczesna kompozycja."
+  }
+]
