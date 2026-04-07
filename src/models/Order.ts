@@ -10,6 +10,7 @@ const OrderItemSchema = new mongoose.Schema({
 
 const OrderSchema = new mongoose.Schema(
   {
+    orderNumber: { type: String, required: true, unique: true },
     items: [OrderItemSchema],
     deliveryType: { type: String, enum: ["delivery", "pickup"], required: true },
     totalPrice: { type: Number, required: true },

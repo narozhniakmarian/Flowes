@@ -7,8 +7,10 @@ export const DEFAULT_LOCALE: Locale = "pl";
 
 export const LOCALES: Locale[] = ["pl", "ua"];
 
+export interface Dictionary {
+  [key: string]: string | Dictionary;
+}
 export type DictionaryValue = string | Dictionary;
-export type Dictionary = Record<string, DictionaryValue>;
 
 const dictionaries: Record<Locale, Dictionary> = {
   pl: pl as Dictionary,

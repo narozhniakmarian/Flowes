@@ -1,11 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { LanguageProvider } from "@/providers/LanguageProvider";
-import { CartProvider } from "@/providers/CartProvider";
-import { CartDrawer } from "@/components/Cart/CartDrawer";
-import { Header } from "@/components/Header/Header";
-import { Footer } from "@/components/Footer/Footer";
-import { ContactButton } from "@/components/ContactButton/ContactButton";
 
 export const metadata: Metadata = {
   title: "FlowerS",
@@ -19,17 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
-      <body>
-        <LanguageProvider>
-          <CartProvider>
-            <Header />
-            <CartDrawer />
-            {children}
-            <Footer />
-            <ContactButton />
-          </CartProvider>
-        </LanguageProvider>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

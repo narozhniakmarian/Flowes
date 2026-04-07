@@ -1,0 +1,239 @@
+.root {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    #fef9ee 0%,
+    #feffdf 40%,
+    #fff0e8 100%
+  );
+  padding: 24px;
+}
+
+/* ─── Card ─────────────────────────────────────────────────────────────────── */
+.card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 133, 98, 0.25);
+  border-radius: 24px;
+  box-shadow:
+    0 4px 24px rgba(50, 43, 34, 0.1),
+    0 1px 4px rgba(50, 43, 34, 0.06);
+  width: 100%;
+  max-width: 420px;
+  overflow: hidden;
+}
+
+/* ─── Header ───────────────────────────────────────────────────────────────── */
+.header {
+  padding: 40px 36px 28px;
+  text-align: center;
+}
+
+.logo {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.title {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 0.875rem;
+  color: color-mix(in srgb, var(--color-text) 65%, transparent);
+  line-height: 1.5;
+}
+
+/* ─── Divider ──────────────────────────────────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 133, 98, 0.3),
+    transparent
+  );
+  margin: 0 36px;
+}
+
+/* ─── Body ─────────────────────────────────────────────────────────────────── */
+.body {
+  padding: 28px 36px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  min-height: 120px;
+  justify-content: center;
+}
+
+/* ─── Primary button ───────────────────────────────────────────────────────── */
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+  padding: 14px 24px;
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease;
+  box-shadow: 0 4px 14px rgba(245, 89, 70, 0.35);
+}
+
+.btn:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(245, 89, 70, 0.4);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(245, 89, 70, 0.3);
+}
+
+/* ─── Secondary button ─────────────────────────────────────────────────────── */
+.btnSecondary {
+  padding: 10px 24px;
+  background: transparent;
+  color: var(--color-accent);
+  border: 1.5px solid var(--color-accent);
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.btnSecondary:hover {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* ─── Status row ───────────────────────────────────────────────────────────── */
+.statusRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9375rem;
+  color: var(--color-text);
+}
+
+.statusRow.success {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+/* ─── Waiting state ────────────────────────────────────────────────────────── */
+.waitingBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.pulse {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  opacity: 0.15;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0.3;
+  }
+}
+
+.waitingTitle {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.waitingHint {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+  line-height: 1.5;
+  max-width: 280px;
+}
+
+/* ─── Feedback block (denied / expired / error) ───────────────────────────── */
+.feedbackBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.feedbackBlock p {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--color-text);
+}
+
+.icon {
+  font-size: 2rem;
+}
+
+/* ─── Retry link ───────────────────────────────────────────────────────────── */
+.retryLink {
+  display: block;
+  width: 100%;
+  padding-bottom: 20px;
+  text-align: center;
+  background: none;
+  border: none;
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+  font-size: 0.8125rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.retryLink:hover {
+  color: var(--color-accent);
+}
+
+/* ─── Spinner ──────────────────────────────────────────────────────────────── */
+.spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(245, 89, 70, 0.25);
+  border-top-color: var(--color-accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

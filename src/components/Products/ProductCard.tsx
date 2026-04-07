@@ -5,27 +5,8 @@ import { useRef, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/providers/LanguageProvider";
 import { useCart } from "@/providers/CartProvider";
+import type { Product } from "@/types/product";
 import styles from "./ProductCard.module.css";
-
-type Ingredient = {
-  name_ua: string;
-  name_pl: string;
-  amount: string;
-};
-
-type Product = {
-  _id: string;
-  id: string;
-  image: string;
-  name_ua: string;
-  name_pl: string;
-  category_ua: string;
-  category_pl: string;
-  price: number;
-  ingredients: Ingredient[];
-  description_ua: string;
-  description_pl: string;
-};
 
 type ProductCardProps = {
   product: Product;

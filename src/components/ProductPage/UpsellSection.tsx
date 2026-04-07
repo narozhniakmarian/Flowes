@@ -3,7 +3,6 @@
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import type { Product } from "@/types/product";
-import type { Product } from "@/types/product";
 import { useLanguage } from "@/providers/LanguageProvider";
 import { useTranslations } from "@/lib/useTranslations";
 import { useCart } from "@/providers/CartProvider";

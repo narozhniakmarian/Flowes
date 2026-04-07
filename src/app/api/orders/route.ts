@@ -4,6 +4,28 @@ import Order from "@/models/Order";
 import { rateLimit, getClientIp, RATE_LIMIT_STRICT } from "@/lib/rateLimit";
 import { sanitizeObject } from "@/lib/sanitize";
 import { CreateOrderSchema, formatZodErrors } from "@/lib/validation";
+import { sendTelegramNotification, formatOrderMessage } from "@/lib/telegram";
+import { generateNextOrderNumber } from "@/lib/orderNumber";
+
+export async function GET() {
+  try {
+    await dbConnect();
+    const orders = await Order.find().sort({ createdAt: -1 });
+
+    return NextResponse.json({
+      success: true,
+      count: orders.length,
+      orders
+    });
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Unknown error";
+    console.error("Failed to fetch orders:", message);
+    return NextResponse.json(
+      { error: "Server error while fetching orders" },
+      { status: 500 },
+    );
+  }
+}
 
 export async function POST(req: Request) {
   try {
@@ -50,7 +72,10 @@ export async function POST(req: Request) {
 
     // 5. Persist to database
     await dbConnect();
+    const orderNumber = await generateNextOrderNumber();
+    
     const newOrder = await Order.create({
+      orderNumber,
       items,
       deliveryType,
       totalPrice,
@@ -59,6 +84,17 @@ export async function POST(req: Request) {
       deliveryTime: deliveryTime ?? null,
       status: "pending",
     });
+
+    // Use already generated orderNumber - guaranteed to exist
+    const orderData = {
+      ...newOrder.toObject(),
+      orderNumber
+    };
+
+    // Send telegram notification in background (don't await)
+    sendTelegramNotification(formatOrderMessage(orderData)).catch(err =>
+      console.error("Telegram notification failed:", err)
+    );
 
     return NextResponse.json(
       { success: true, orderId: newOrder._id },
