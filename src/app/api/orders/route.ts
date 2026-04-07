@@ -15,7 +15,7 @@ export async function GET() {
     return NextResponse.json({
       success: true,
       count: orders.length,
-      orders
+      orders,
     });
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : "Unknown error";
@@ -31,7 +31,11 @@ export async function POST(req: Request) {
   try {
     // 1. Rate limiting — strict: 5 req/min per IP
     const ip = getClientIp(req);
-    const { allowed, retryAfterMs } = rateLimit(ip, "orders", RATE_LIMIT_STRICT);
+    const { allowed, retryAfterMs } = rateLimit(
+      ip,
+      "orders",
+      RATE_LIMIT_STRICT,
+    );
     if (!allowed) {
       return NextResponse.json(
         { error: "Too many requests. Please try again later." },
@@ -51,7 +55,10 @@ export async function POST(req: Request) {
     }
 
     if (!rawBody || typeof rawBody !== "object" || Array.isArray(rawBody)) {
-      return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Invalid request body" },
+        { status: 400 },
+      );
     }
 
     // 3. Sanitize — strips NoSQL operators ($), prototype pollution keys,
@@ -67,13 +74,19 @@ export async function POST(req: Request) {
       );
     }
 
-    const { items, deliveryType, totalPrice, customer, deliveryDate, deliveryTime } =
-      result.data;
+    const {
+      items,
+      deliveryType,
+      totalPrice,
+      customer,
+      deliveryDate,
+      deliveryTime,
+    } = result.data;
 
     // 5. Persist to database
     await dbConnect();
     const orderNumber = await generateNextOrderNumber();
-    
+
     const newOrder = await Order.create({
       orderNumber,
       items,
@@ -88,16 +101,22 @@ export async function POST(req: Request) {
     // Use already generated orderNumber - guaranteed to exist
     const orderData = {
       ...newOrder.toObject(),
-      orderNumber
+      orderNumber,
     };
 
-    // Send telegram notification in background (don't await)
-    sendTelegramNotification(formatOrderMessage(orderData)).catch(err =>
-      console.error("Telegram notification failed:", err)
-    );
+    // Send telegram notification
+    try {
+      await sendTelegramNotification(formatOrderMessage(orderData));
+    } catch (err) {
+      console.error("Telegram notification failed:", err);
+    }
 
     return NextResponse.json(
-      { success: true, orderId: newOrder._id },
+      {
+        success: true,
+        orderId: newOrder._id,
+        orderNumber: newOrder.orderNumber,
+      },
       { status: 201 },
     );
   } catch (error: unknown) {

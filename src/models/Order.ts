@@ -12,7 +12,11 @@ const OrderSchema = new mongoose.Schema(
   {
     orderNumber: { type: String, required: true, unique: true },
     items: [OrderItemSchema],
-    deliveryType: { type: String, enum: ["delivery", "pickup"], required: true },
+    deliveryType: {
+      type: String,
+      enum: ["delivery", "pickup"],
+      required: true,
+    },
     totalPrice: { type: Number, required: true },
     customer: {
       firstName: { type: String, required: true },
@@ -22,9 +26,15 @@ const OrderSchema = new mongoose.Schema(
     },
     deliveryDate: { type: String, default: null },
     deliveryTime: { type: String, default: null },
-    status: { type: String, default: "pending", enum: ["pending", "processing", "completed", "cancelled"] },
+    status: {
+      type: String,
+      default: "pending",
+      enum: ["pending", "processing", "completed", "cancelled"],
+    },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
-export default mongoose.models.Order || mongoose.model("Order", OrderSchema);
+const Order =
+  mongoose.models.Order || mongoose.model("Order", OrderSchema, "orders");
+export default Order;

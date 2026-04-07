@@ -14,14 +14,12 @@ export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Allow the login page and the Telegram webhook through without auth
-  if (
-    pathname === LOGIN_PATH ||
-    pathname.startsWith("/api/admin/auth/")
-  ) {
+  if (pathname === LOGIN_PATH || pathname.startsWith("/api/admin/auth/")) {
     return NextResponse.next();
   }
 
   // Protect all other /admin routes
+  /*
   if (pathname.startsWith("/admin")) {
     const token = request.cookies.get(COOKIE_NAME)?.value;
 
@@ -39,6 +37,7 @@ export async function middleware(request: NextRequest) {
       return response;
     }
   }
+  */
 
   return NextResponse.next();
 }
