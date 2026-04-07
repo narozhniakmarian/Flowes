@@ -1,0 +1,91 @@
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.statMini {
+  background: var(--admin-card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 133, 98, 0.15);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.statMiniLabel {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+}
+
+.statMiniValue {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.tableWrap {
+  background: var(--admin-card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 133, 98, 0.15);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  text-align: left;
+  padding: 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 133, 98, 0.15);
+}
+
+.table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255, 133, 98, 0.08);
+  font-size: 0.875rem;
+  color: var(--color-text);
+}
+
+.table tbody tr:hover {
+  background: rgba(255, 133, 98, 0.05);
+}
+
+.editableCell {
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+
+.editableCell:hover {
+  background: rgba(245, 89, 70, 0.1);
+}
+
+.editInput {
+  width: 80px;
+  padding: 6px 10px;
+  border: 1px solid var(--color-accent);
+  border-radius: 6px;
+  background: white;
+  font-size: 0.875rem;
+  outline: none;
+}
+
+.positive {
+  color: #10b981 !important;
+  font-weight: 600;
+}
+
+.negative {
+  color: #ef4444 !important;
+  font-weight: 600;
+}

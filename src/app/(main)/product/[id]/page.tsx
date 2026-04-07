@@ -7,6 +7,7 @@ import type { Product } from "@/types/product";
 import { useLanguage } from "@/providers/LanguageProvider";
 import { useTranslations } from "@/lib/useTranslations";
 import { useCart } from "@/providers/CartProvider";
+import { useToast } from "@/components/Toast/Toast";
 import { InfoModal } from "@/components/ProductPage/InfoModal";
 import { UpsellSection } from "@/components/ProductPage/UpsellSection";
 import { AdvantagesSection } from "@/components/ProductPage/AdvantagesSection";
@@ -144,9 +145,12 @@ export default function ProductPage() {
   const name = locale === "pl" ? product.name_pl : product.name_ua;
   const category = locale === "pl" ? product.category_pl : product.category_ua;
 
+  const { showToast } = useToast();
+
   const handleAddToCart = () => {
     addItem(product);
     setAdded(true);
+    showToast(`${name} додано до кошика`, 'success');
     setTimeout(() => setAdded(false), 1600);
   };
 

@@ -32,3 +32,28 @@ export async function GET(req: Request) {
     return NextResponse.json({ error: "Failed to fetch products" }, { status: 500 });
   }
 }
+
+export async function POST(req: Request) {
+  try {
+    await dbConnect();
+    const body = await req.json();
+
+    // Check if product with this id already exists
+    const existing = await Product.findOne({ id: body.id });
+    if (existing) {
+      return NextResponse.json(
+        { error: "Product with this ID already exists" },
+        { status: 400 }
+      );
+    }
+
+    const product = await Product.create(body);
+    return NextResponse.json(product, { status: 201 });
+  } catch (error: any) {
+    console.error("Failed to create product:", error);
+    return NextResponse.json(
+      { error: error.message || "Failed to create product" },
+      { status: 500 }
+    );
+  }
+}

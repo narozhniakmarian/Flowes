@@ -25,51 +25,73 @@ export function ProductsSection() {
     categories: [],
     priceRange: [PRICE_MIN, PRICE_MAX],
   });
+  const [visibleCount, setVisibleCount] = useState(9);
+  const [dbCategories, setDbCategories] = useState<any[]>([]);
 
   useEffect(() => {
+    // Load products
     fetch("/api/products")
       .then((res) => res.json())
       .then((data) => {
         if (!data.error) setProducts(data);
       })
       .catch((err) => console.error("Failed to load products:", err));
+
+    // Load categories for mapping
+    fetch("/api/categories")
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data)) setDbCategories(data);
+      })
+      .catch((err) => console.error("Failed to load categories:", err));
   }, []);
 
   const filteredProducts = useMemo(() => {
     return products.filter((p) => {
-      const categoryKey = locale === "pl" ? p.category_pl : p.category_ua;
-      const categoryId = p.category_pl
-        .toLowerCase()
-        .replace(/\s+/g, "-")
-        .replace(
-          /[ąćęłńóśźż]/g,
-          (c) =>
-            ({
-              ą: "a",
-              ć: "c",
-              ę: "e",
-              ł: "l",
-              ń: "n",
-              ó: "o",
-              ś: "s",
-              ź: "z",
-              ż: "z",
-            })[c] ?? c,
-        );
+      // 1. Category filter
+      let categoryMatch = filters.categories.length === 0;
 
-      const categoryMatch =
-        filters.categories.length === 0 ||
-        filters.categories.includes(categoryId) ||
-        filters.categories.some((fc) =>
-          categoryKey.toLowerCase().includes(fc.replace(/-/g, " ")),
-        );
+      if (!categoryMatch) {
+        // Find the slug(s) for the product's category
+        const productCategoryPl = p.category_pl.toLowerCase().trim();
+        const productCategoryUa = p.category_ua.toLowerCase().trim();
 
+        // Check if any selected category slug matches this product
+        categoryMatch = filters.categories.some(selectedSlug => {
+          // Find the category object in our DB categories
+          const catObj = dbCategories.find(c => c.slug === selectedSlug);
+          if (catObj) {
+            return catObj.name_pl.toLowerCase().trim() === productCategoryPl || 
+                   catObj.name_ua.toLowerCase().trim() === productCategoryUa;
+          }
+          
+          // Fallback: try to generate slug from product category name and compare
+          const generatedSlug = productCategoryPl
+            .replace(/\s+/g, "-")
+            .replace(/[ąćęłńóśźż]/g, (c: string) => ({ą:'a',ć:'c',ę:'e',ł:'l',ń:'n',ó:'o',ś:'s',ź:'z',ż:'z'})[c] || c)
+            .replace(/[^a-z0-9-]/g, "");
+            
+          return generatedSlug === selectedSlug || selectedSlug.includes(generatedSlug) || generatedSlug.includes(selectedSlug);
+        });
+      }
+
+      // 2. Price filter
       const priceMatch =
         p.price >= filters.priceRange[0] && p.price <= filters.priceRange[1];
 
       return categoryMatch && priceMatch;
     });
-  }, [filters, locale, products]);
+  }, [filters, locale, products, dbCategories]);
+
+  const displayedProducts = useMemo(() => {
+    return filteredProducts.slice(0, visibleCount);
+  }, [filteredProducts, visibleCount]);
+
+  const hasMore = visibleCount < filteredProducts.length;
+
+  const loadMore = () => {
+    setVisibleCount((prev) => prev + 6);
+  };
 
   return (
     <section id="products" className={styles.section}>
@@ -187,10 +209,10 @@ export function ProductsSection() {
           </div>
 
           <div className={view === "list" ? styles.list : styles.grid}>
-            {filteredProducts.length === 0 ? (
+            {displayedProducts.length === 0 ? (
               <p className={styles.empty}>{t("empty")}</p>
             ) : (
-              filteredProducts.map((product) => (
+              displayedProducts.map((product) => (
                 <ProductCard
                   key={product._id}
                   product={product}
@@ -200,6 +222,18 @@ export function ProductsSection() {
               ))
             )}
           </div>
+
+          {hasMore && (
+            <div className={styles.loadMore}>
+              <button
+                type="button"
+                className={styles.loadMoreBtn}
+                onClick={loadMore}
+              >
+                {t("load_more") || "Показати ще"}
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </section>

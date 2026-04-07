@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { CartProvider } from "@/providers/CartProvider";
+import { ToastProvider } from "@/components/Toast/Toast";
 
 export const metadata: Metadata = {
   title: "FlowerS",
@@ -13,7 +15,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
-      <body>{children}</body>
+      <body>
+        <ToastProvider>
+          <CartProvider>
+            {children}
+          </CartProvider>
+        </ToastProvider>
+      </body>
     </html>
   );
 }

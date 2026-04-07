@@ -12,7 +12,8 @@
     "view_toggle": "Zmień widok",
     "view_grid": "Widok siatki",
     "view_list": "Widok listy",
-    "empty": "Brak produktów spełniających kryteria."
+    "empty": "Brak produktów spełniających kryteria.",
+    "load_more": "Pokaż więcej"
   },
   "filters": {
     "title": "Filtry",

@@ -19,7 +19,8 @@ export async function POST(req: Request) {
 
   // 27 bytes = 54 hex chars; "approve:" prefix = 62 bytes total — within Telegram's 64-byte callback_data limit
   const requestId = randomBytes(27).toString("hex");
-  createPendingRequest(requestId);
+  const userAgent = req.headers.get("user-agent") || "Unknown";
+  await createPendingRequest(requestId, { userAgent, ip });
 
   try {
     await sendTelegramLoginRequest(requestId);

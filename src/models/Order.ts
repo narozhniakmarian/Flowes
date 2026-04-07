@@ -31,6 +31,8 @@ const OrderSchema = new mongoose.Schema(
       default: "pending",
       enum: ["pending", "processing", "completed", "cancelled"],
     },
+    costPrice: { type: Number, default: 0 },
+    deliveryCost: { type: Number, default: 0 },
   },
   { timestamps: true },
 );

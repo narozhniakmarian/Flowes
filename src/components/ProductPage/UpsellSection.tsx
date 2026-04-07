@@ -6,6 +6,7 @@ import type { Product } from "@/types/product";
 import { useLanguage } from "@/providers/LanguageProvider";
 import { useTranslations } from "@/lib/useTranslations";
 import { useCart } from "@/providers/CartProvider";
+import { useToast } from "@/components/Toast/Toast";
 import styles from "./UpsellSection.module.css";
 
 type UpsellSectionProps = {
@@ -16,6 +17,7 @@ export function UpsellSection({ currentId }: UpsellSectionProps) {
   const { locale } = useLanguage();
   const t = useTranslations("product");
   const { addItem } = useCart();
+  const { showToast } = useToast();
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -110,14 +112,17 @@ export function UpsellSection({ currentId }: UpsellSectionProps) {
                   <p className={styles.cardName}>{name}</p>
                   <div className={styles.cardFooter}>
                     <span className={styles.cardPrice}>{product.price} zł</span>
-                    <button
-                      type="button"
-                      className={styles.cardAddBtn}
-                      onClick={() => addItem(product)}
-                      aria-label={`Add ${name} to cart`}
-                    >
-                      +
-                    </button>
+                     <button
+                       type="button"
+                       className={styles.cardAddBtn}
+                       onClick={() => {
+                         addItem(product);
+                         showToast(`${name} додано до кошика`, 'success');
+                       }}
+                       aria-label={`Add ${name} to cart`}
+                     >
+                       +
+                     </button>
                   </div>
                 </div>
               </div>

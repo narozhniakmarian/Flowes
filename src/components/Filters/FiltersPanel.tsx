@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Slider } from "@mui/material";
 import { useLanguage } from "@/providers/LanguageProvider";
 import { useTranslations } from "@/lib/useTranslations";
@@ -12,25 +12,12 @@ export type FilterState = {
 };
 
 type Category = {
+  _id: string;
   id: string;
-  label_pl: string;
-  label_ua: string;
+  name_pl: string;
+  name_ua: string;
+  slug: string;
 };
-
-const CATEGORIES: Category[] = [
-  {
-    id: "bukiety-slubne",
-    label_pl: "Bukiety ślubne",
-    label_ua: "Весільні букети",
-  },
-  { id: "dzien-matki", label_pl: "Dzień Matki", label_ua: "День матері" },
-  {
-    id: "8-marca",
-    label_pl: "Kwiaty na 8 marca",
-    label_ua: "Квіти до 8 березня",
-  },
-  { id: "kosz-kwiatow", label_pl: "Kosz kwiatów", label_ua: "Кошик квітів" },
-];
 
 const PRICE_MIN = 0;
 const PRICE_MAX = 3000;
@@ -45,6 +32,18 @@ export function FiltersPanel({ filters, onChange }: FiltersPanelProps) {
   const t = useTranslations("filters");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(true);
+  const [categories, setCategories] = useState<Category[]>([]);
+
+  useEffect(() => {
+    fetch("/api/categories")
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data)) {
+          setCategories(data);
+        }
+      })
+      .catch((err) => console.error("Failed to load categories:", err));
+  }, []);
 
   const toggleCategory = (id: string) => {
     const next = filters.categories.includes(id)
@@ -117,18 +116,18 @@ export function FiltersPanel({ filters, onChange }: FiltersPanelProps) {
           ].join(" ")}
           role="list"
         >
-          {CATEGORIES.map((cat) => {
-            const label = locale === "pl" ? cat.label_pl : cat.label_ua;
-            const checked = filters.categories.includes(cat.id);
+          {categories.map((cat) => {
+            const label = locale === "pl" ? cat.name_pl : cat.name_ua;
+            const checked = filters.categories.includes(cat.slug);
             return (
-              <li key={cat.id}>
+              <li key={cat._id}>
                 <button
                   type="button"
                   className={[
                     styles.categoryItem,
                     checked ? styles.categoryItemActive : "",
                   ].join(" ")}
-                  onClick={() => toggleCategory(cat.id)}
+                  onClick={() => toggleCategory(cat.slug)}
                   aria-pressed={checked}
                 >
                   <span

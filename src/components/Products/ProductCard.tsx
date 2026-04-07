@@ -5,6 +5,7 @@ import { useRef, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/providers/LanguageProvider";
 import { useCart } from "@/providers/CartProvider";
+import { useToast } from "@/components/Toast/Toast";
 import type { Product } from "@/types/product";
 import styles from "./ProductCard.module.css";
 
@@ -17,6 +18,7 @@ type ProductCardProps = {
 export function ProductCard({ product, view, onClick }: ProductCardProps) {
   const { locale } = useLanguage();
   const { addItem } = useCart();
+  const { showToast } = useToast();
   const router = useRouter();
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -86,6 +88,7 @@ export function ProductCard({ product, view, onClick }: ProductCardProps) {
             onClick={(e) => {
               e.stopPropagation();
               addItem(product);
+              showToast(`${name} додано до кошика`, 'success');
             }}
             aria-label={name}
           >

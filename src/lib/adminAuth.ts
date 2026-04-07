@@ -3,6 +3,9 @@
 // NOTE: Uses an in-memory Map. For multi-instance/serverless deployments,
 // replace with a Redis or MongoDB-backed store.
 
+import AuthLog from "@/models/AuthLog";
+import dbConnect from "./mongodb";
+
 type PendingStatus = "pending" | "approved" | "denied" | "expired";
 
 interface PendingRequest {
@@ -27,11 +30,26 @@ if (typeof cleanup === "object" && cleanup !== null && "unref" in cleanup) {
 
 // ─── Store helpers ────────────────────────────────────────────────────────────
 
-export function createPendingRequest(requestId: string): void {
+export async function createPendingRequest(
+  requestId: string,
+  details?: { userAgent?: string; ip?: string },
+): Promise<void> {
   pendingRequests.set(requestId, {
     status: "pending",
     expiresAt: Date.now() + REQUEST_TTL_MS,
   });
+
+  try {
+    await dbConnect();
+    await AuthLog.create({
+      requestId,
+      status: "pending",
+      userAgent: details?.userAgent,
+      ip: details?.ip,
+    });
+  } catch (error) {
+    console.error("Failed to create AuthLog:", error);
+  }
 }
 
 export function getPendingStatus(requestId: string): PendingStatus {
@@ -52,6 +70,14 @@ export function resolvePendingRequest(
   if (!req || Date.now() > req.expiresAt) return false;
   req.status = decision;
   pendingRequests.set(requestId, req);
+
+  // Async update in DB
+  dbConnect().then(() => {
+    AuthLog.findOneAndUpdate({ requestId }, { status: decision }).catch((err) =>
+      console.error("Failed to update AuthLog:", err),
+    );
+  });
+
   return true;
 }
 
@@ -64,7 +90,9 @@ const TG = `https://api.telegram.org/bot${BOT_TOKEN}`;
 /**
  * Sends a Telegram message with Approve / Deny inline buttons.
  */
-export async function sendTelegramLoginRequest(requestId: string): Promise<void> {
+export async function sendTelegramLoginRequest(
+  requestId: string,
+): Promise<void> {
   const shortId = requestId.slice(0, 8);
   const payload = {
     chat_id: CHAT_ID,

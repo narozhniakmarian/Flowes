@@ -1,10 +1,27 @@
 :root {
     --color-background: #feffdf;
     --color-text: #645643;
+    --color-text-muted: #8a7a6a;
     --color-accent: #f55946;
     --color-accent-hover: #f6525c;
     --color-border: #ff8562;
     --color-shadow: #322b22;
+    --admin-card-bg: rgba(255, 255, 255, 0.85);
+    --admin-sidebar-bg: rgba(255, 255, 255, 0.7);
+    --admin-header-bg: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme='dark'] {
+    --color-background: #1a1614;
+    --color-text: #e2d8cf;
+    --color-text-muted: #a09084;
+    --color-accent: #ff6b5a;
+    --color-accent-hover: #ff8275;
+    --color-border: #4a3a35;
+    --color-shadow: #000000;
+    --admin-card-bg: rgba(30, 26, 24, 0.9);
+    --admin-sidebar-bg: rgba(25, 22, 20, 0.8);
+    --admin-header-bg: rgba(25, 22, 20, 0.6);
 }
 
 #body-bg-video {
