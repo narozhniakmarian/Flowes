@@ -64,6 +64,54 @@
   color: var(--color-accent);
 }
 
+.statusSelect {
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s;
+  background-color: var(--admin-input-bg);
+  color: var(--color-text);
+  width: auto;
+  min-width: 120px;
+}
+
+.statusSelect:hover {
+  filter: brightness(0.95);
+}
+
+.statusSelect:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.statusSelect.status_pending {
+  background-color: #fef3c7;
+  color: #92400e;
+  border-color: #f59e0b;
+}
+
+.statusSelect.status_processing {
+  background-color: #dbeafe;
+  color: #1e40af;
+  border-color: #3b82f6;
+}
+
+.statusSelect.status_completed {
+  background-color: #d1fae5;
+  color: #065f46;
+  border-color: #10b981;
+}
+
+.statusSelect.status_cancelled {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border-color: #ef4444;
+}
+
 .status {
   display: inline-flex;
   align-items: center;
@@ -159,6 +207,33 @@
 
 .modalBody {
   padding: 2rem;
+}
+
+.statusUpdateRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.updatingLabel {
+  font-size: 0.875rem;
+  color: var(--color-accent);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .section {

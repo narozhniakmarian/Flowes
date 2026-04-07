@@ -18,18 +18,16 @@ export async function PUT(
     await dbConnect();
 
     const id = params.id;
-    console.log("Attempting to update order costs:", {
+    console.log("Attempting to update order status:", {
       id,
-      costPrice: body.costPrice,
-      deliveryCost: body.deliveryCost,
+      status: body.status,
     });
 
     const order = await Order.findByIdAndUpdate(
       id,
       {
         $set: {
-          costPrice: body.costPrice,
-          deliveryCost: body.deliveryCost,
+          status: body.status,
         },
       },
       { new: true },
@@ -40,16 +38,18 @@ export async function PUT(
       return NextResponse.json({ error: "Order not found" }, { status: 404 });
     }
 
-    console.log("Successfully updated order:", order._id, "Resulting fields:", {
-      costPrice: order.costPrice,
-      deliveryCost: order.deliveryCost,
-    });
+    console.log(
+      "Successfully updated status for order:",
+      order._id,
+      "to:",
+      order.status,
+    );
 
     return NextResponse.json(order);
   } catch (error) {
-    console.error("Failed to update order costs:", error);
+    console.error("Failed to update order status:", error);
     return NextResponse.json(
-      { error: "Failed to update order costs" },
+      { error: "Failed to update order status" },
       { status: 500 },
     );
   }

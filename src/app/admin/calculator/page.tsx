@@ -8,6 +8,7 @@ async function getOrders() {
   await dbConnect();
   const orders = await Order.find({}).sort({ createdAt: -1 }).lean();
   return orders.map((order) => ({
+    id: order._id.toString(),
     orderNumber: order.orderNumber,
     date: order.createdAt.toISOString().split("T")[0],
     totalPrice: order.totalPrice,
