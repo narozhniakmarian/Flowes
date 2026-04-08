@@ -1,7 +1,32 @@
 .statsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.dashboardFlex {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: flex-start;
+  margin-top: 24px;
+}
+
+.dashboardSection {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 1024px) {
+  .dashboardFlex {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .dashboardSection {
+    width: 100%;
+  }
 }
 
 .statCard {

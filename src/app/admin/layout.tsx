@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
 import { Toaster } from "sonner";
+import NextImage from "next/image";
 import ThemeInitializer from "./ThemeInitializer";
 import styles from "./layout.module.css";
 
@@ -31,7 +32,16 @@ export default function AdminLayout({
       </Suspense>
       <aside className={styles.sidebar}>
         <div className={styles.logo}>
-          <h1>🌸 FlowerS Admin</h1>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '4px' }}>
+            <NextImage
+              src="/intro/logo.PNG"
+              alt="FlowerS"
+              width={32}
+              height={32}
+              priority
+            />
+            <h1 style={{ fontSize: '1.25rem', fontWeight: 700, margin: 0 }}>FlowerS Admin</h1>
+          </div>
           <p>Керуйте магазином квітів</p>
         </div>
 
