@@ -115,8 +115,8 @@ export function ProductsSection() {
 
   return (
     <>
+      <FiltersPanel filters={filters} onChange={setFilters} />
       <section id="products" className={styles.section}>
-        <FiltersPanel filters={filters} onChange={setFilters} />
         <div className={styles.sectionWrapper}>
 
           <div className={styles.sectionContent}>

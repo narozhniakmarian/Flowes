@@ -1,14 +1,5 @@
-/* ─── Sidebar wrapper (desktop) ─── */
 .sidebar {
-    width: 280px;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    position: absolute;
-    top: 0;
-    left: -300px;
-    z-index: 10;
+    display: none;
 }
 
 /* ─── Panel card ─── */
@@ -259,36 +250,43 @@
     margin: 0;
 }
 
-/* ─── Mobile toggle button ─── */
 .mobileToggle {
-    display: none;
+    display: flex;
     position: fixed;
     left: 0;
-    /* top: 50%; */
+    top: 50%;
     transform: translateY(-50%);
-    z-index: 30;
-    background: var(--color-accent);
+    z-index: 10;
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
     color: #fff;
     border: 0;
-    border-radius: 0 12px 12px 0;
-    padding: 12px 10px;
+    border-radius: 0 16px 16px 0;
+    padding: 20px 12px;
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 800;
     cursor: pointer;
     writing-mode: vertical-lr;
-    letter-spacing: 0.08em;
-    box-shadow: 4px 0 20px rgba(245, 89, 70, 0.35);
-    transition: padding 0.2s ease, background 0.2s ease;
+    letter-spacing: 0.12em;
+    box-shadow: 4px 0 24px rgba(245, 89, 70, 0.4);
+    transition:
+        padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        background 0.3s ease,
+        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.3s ease;
 }
 
 .mobileToggle:hover {
+    padding: 24px 16px;
+    box-shadow: 6px 0 32px rgba(245, 89, 70, 0.55);
     background: var(--color-accent-hover);
-    padding: 14px 12px;
 }
 
-/* ─── Mobile overlay panel ─── */
+.mobileToggle:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
 .mobileOverlay {
-    display: none;
+    display: block;
     position: fixed;
     inset: 0;
     z-index: 60;
@@ -355,17 +353,4 @@
     line-height: 1;
 }
 
-/* ─── Responsive ─── */
-@media (max-width: 1100px) {
-    .sidebar {
-        display: none;
-    }
-
-    .mobileToggle {
-        display: flex;
-    }
-
-    .mobileOverlay {
-        display: block;
-    }
-}
+/* Sidebar logic is now global (always hidden behind toggle) */

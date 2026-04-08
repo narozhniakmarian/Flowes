@@ -22,19 +22,22 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 64px 24px 96px;
+    padding: 0 24px 96px;
 }
 
 .hero {
     position: relative;
-    border-radius: 28px;
+    width: 100vw;
+    height: 100vh;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
     overflow: hidden;
-    background: rgba(254, 255, 223, 0.6);
-    backdrop-filter: blur(18px);
-    box-shadow: 0 24px 60px rgba(50, 43, 34, 0.15);
-    padding: 80px 56px;
-    display: grid;
-    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
 }
 
 .heroVideo {
@@ -62,7 +65,8 @@
     z-index: 2;
     display: grid;
     gap: 18px;
-    max-width: 720px;
+    max-width: 1200px;
+    width: 100%;
 }
 
 .kicker {
@@ -163,7 +167,7 @@
 
 @media (max-width: 768px) {
     .main {
-        padding: 48px 20px 72px;
+        padding: 0 20px 72px;
     }
 
     .hero {

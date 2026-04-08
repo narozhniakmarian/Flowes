@@ -158,12 +158,7 @@
     border: 1px dashed rgba(255, 133, 98, 0.3);
 }
 
-@media (max-width: 1024px) {
-    .sectionWrapper {
-        grid-template-columns: 220px 1fr;
-        gap: 24px;
-    }
-}
+/* Sidebar layout removed as filters are always mobile-style */
 
 @media (max-width: 900px) {
     .sectionWrapper {
