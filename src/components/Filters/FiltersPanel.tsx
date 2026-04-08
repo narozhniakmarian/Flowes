@@ -34,6 +34,8 @@ export function FiltersPanel({ filters, onChange }: FiltersPanelProps) {
   const [categoriesOpen, setCategoriesOpen] = useState(true);
   const [categories, setCategories] = useState<Category[]>([]);
 
+  const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
     fetch("/api/categories")
       .then((res) => res.json())
@@ -43,6 +45,16 @@ export function FiltersPanel({ filters, onChange }: FiltersPanelProps) {
         }
       })
       .catch((err) => console.error("Failed to load categories:", err));
+
+    const handleScroll = () => {
+      // Show button after scrolling past 80% of the viewport height (approx end of Hero)
+      setIsVisible(window.scrollY > window.innerHeight * 0.8);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const toggleCategory = (id: string) => {
@@ -220,7 +232,10 @@ export function FiltersPanel({ filters, onChange }: FiltersPanelProps) {
       {/* Mobile toggle button */}
       <button
         type="button"
-        className={styles.mobileToggle}
+        className={[
+          styles.mobileToggle,
+          isVisible ? styles.mobileToggleVisible : "",
+        ].join(" ")}
         onClick={() => setMobileOpen(true)}
         aria-label={t("open")}
       >

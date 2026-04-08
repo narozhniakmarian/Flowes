@@ -49,14 +49,14 @@
     z-index: 0;
 }
 
+
+
 .heroOverlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        90deg,
-        rgba(245, 89, 70, 0.6) 0%,
-        rgba(245, 89, 70, 0) 60%
-    );
+    background: linear-gradient(90deg,
+            rgba(245, 89, 70, 0.6) 0%,
+            rgba(245, 89, 70, 0) 60%);
     z-index: 1;
 }
 

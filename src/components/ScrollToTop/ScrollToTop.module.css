@@ -1,0 +1,53 @@
+.scrollBtn {
+  position: fixed;
+  bottom: 94px; /* Above the contact button (28px + 56px + 10px spacing) */
+  right: 28px;
+  z-index: 60;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #f55946 0%, #f6525c 100%);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow:
+    0 4px 20px rgba(245, 89, 70, 0.45),
+    0 2px 8px rgba(50, 43, 34, 0.2);
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.3s ease,
+    box-shadow 0.2s ease;
+  outline: none;
+  
+  /* Hidden state */
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.5) translateY(20px);
+}
+
+.scrollBtn.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1) translateY(0);
+}
+
+.scrollBtn:hover {
+  transform: scale(1.1) translateY(0);
+  box-shadow:
+    0 6px 28px rgba(245, 89, 70, 0.6),
+    0 2px 10px rgba(50, 43, 34, 0.25);
+}
+
+.scrollBtn:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+  .scrollBtn {
+    bottom: 94px;
+    right: 20px;
+  }
+}
