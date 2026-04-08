@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 
 import styles from "./page.module.css";
 import { useTranslations } from "@/lib/useTranslations";
@@ -8,17 +9,21 @@ import { GallerySection } from "@/components/Gallery/GallerySection";
 
 export default function Home() {
   const t = useTranslations("hero");
+  const [heroVideoLoaded, setHeroVideoLoaded] = useState(false);
+  const [bgVideoLoaded, setBgVideoLoaded] = useState(false);
 
   return (
     <>
       <video
         id="body-bg-video"
+        className={bgVideoLoaded ? styles.heroVideoVisible : ""}
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
         aria-hidden="true"
+        onCanPlayThrough={() => setBgVideoLoaded(true)}
       >
         <source src="/intro/body_background.mp4" type="video/mp4" />
       </video>
@@ -26,12 +31,16 @@ export default function Home() {
       <main className={styles.main}>
         <section className={styles.hero}>
           <video
-            className={styles.heroVideo}
+            className={[
+              styles.heroVideo,
+              heroVideoLoaded ? styles.heroVideoVisible : "",
+            ].join(" ")}
             autoPlay
             muted
             loop
             playsInline
             preload="auto"
+            onCanPlayThrough={() => setHeroVideoLoaded(true)}
           >
             <source src="/intro/hero_background.mp4" type="video/mp4" />
           </video>

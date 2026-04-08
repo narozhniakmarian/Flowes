@@ -13,8 +13,8 @@ interface IGalleryImage {
   alt: string;
 }
 
-const INITIAL_COUNT = 12;
-const LOAD_MORE_COUNT = 12;
+const INITIAL_COUNT = 6;
+const LOAD_MORE_COUNT = 6;
 
 export function GallerySection() {
   const t = useTranslations("gallery");

@@ -11,7 +11,7 @@ async function logout() {
   const { deleteAdminSession } = await import("@/lib/session");
   const { redirect } = await import("next/navigation");
   await deleteAdminSession();
-  redirect("/admin/login");
+  redirect("/");
 }
 
 export const metadata: Metadata = {

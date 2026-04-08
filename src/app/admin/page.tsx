@@ -185,7 +185,7 @@ export default async function AdminDashboard() {
                   </svg>
                 </div>
               </div>
-              <div className={styles.statValue}>{stats.monthlyRevenue} грн</div>
+              <div className={styles.statValue}>{stats.monthlyRevenue} zł</div>
             </div>
 
             <div className={styles.statCard}>
@@ -197,7 +197,7 @@ export default async function AdminDashboard() {
                   </svg>
                 </div>
               </div>
-              <div className={styles.statValue}>{stats.totalRevenue} грн</div>
+              <div className={styles.statValue}>{stats.totalRevenue} zł</div>
             </div>
           </div>
         </div>

@@ -198,11 +198,11 @@ export default function OrdersList({ initialOrders }: OrdersListProps) {
                     ? "🚚 Доставка"
                     : "🏃 Самовивіз"}
                 </td>
-                <td className={styles.td}>{order.totalPrice} грн</td>
-                <td className={styles.td}>{order.costPrice || 0} грн</td>
-                <td className={styles.td}>{order.deliveryCost || 0} грн</td>
+                <td className={styles.td}>{order.totalPrice} zł</td>
+                <td className={styles.td}>{order.costPrice || 0} zł</td>
+                <td className={styles.td}>{order.deliveryCost || 0} zł</td>
                 <td className={`${styles.td} ${order.totalPrice - ((order.costPrice || 0) + (order.deliveryCost || 0)) >= 0 ? styles.profit_positive : styles.profit_negative}`}>
-                  {order.totalPrice - ((order.costPrice || 0) + (order.deliveryCost || 0))} грн
+                  {order.totalPrice - ((order.costPrice || 0) + (order.deliveryCost || 0))} zł
                 </td>
                 <td className={styles.td} onClick={(e) => e.stopPropagation()}>
                   <select
@@ -349,7 +349,7 @@ export default function OrdersList({ initialOrders }: OrdersListProps) {
                 <span className={styles.sectionTitle}>Калькулятор (Розрахунок прибутку)</span>
                 <div className={styles.calculatorGrid}>
                   <div className={styles.infoItem}>
-                    <span className={styles.infoLabel}>Собівартість (грн)</span>
+                    <span className={styles.infoLabel}>Собівартість (zł)</span>
                     <input 
                       type="number" 
                       className={styles.modalInput}
@@ -358,7 +358,7 @@ export default function OrdersList({ initialOrders }: OrdersListProps) {
                     />
                   </div>
                   <div className={styles.infoItem}>
-                    <span className={styles.infoLabel}>Доставка (грн)</span>
+                    <span className={styles.infoLabel}>Доставка (zł)</span>
                     <input 
                       type="number" 
                       className={styles.modalInput}
@@ -369,7 +369,7 @@ export default function OrdersList({ initialOrders }: OrdersListProps) {
                   <div className={styles.infoItem}>
                     <span className={styles.infoLabel}>Прибуток нетто</span>
                     <span className={`${styles.infoValue} ${selectedOrder.totalPrice - (costPrice + deliveryCost) >= 0 ? styles.profit_positive : styles.profit_negative}`}>
-                      {selectedOrder.totalPrice - (costPrice + deliveryCost)} грн
+                      {selectedOrder.totalPrice - (costPrice + deliveryCost)} zł
                     </span>
                   </div>
                 </div>
@@ -390,11 +390,11 @@ export default function OrdersList({ initialOrders }: OrdersListProps) {
                       <div className={styles.itemInfo}>
                         <span className={styles.itemName}>{item.name_ua}</span>
                         <span className={styles.itemMeta}>
-                          {item.quantity} x {item.price} грн
+                          {item.quantity} x {item.price} zł
                         </span>
                       </div>
                       <span className={styles.itemPrice}>
-                        {item.quantity * item.price} грн
+                        {item.quantity * item.price} zł
                       </span>
                     </div>
                   ))}
@@ -403,7 +403,7 @@ export default function OrdersList({ initialOrders }: OrdersListProps) {
                 <div className={styles.totalSection}>
                   <span className={styles.totalLabel}>Разом до сплати</span>
                   <span className={styles.totalValue}>
-                    {selectedOrder.totalPrice} грн
+                    {selectedOrder.totalPrice} zł
                   </span>
                 </div>
               </div>
