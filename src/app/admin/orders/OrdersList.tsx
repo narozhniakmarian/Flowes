@@ -30,6 +30,8 @@ type Order = {
   deliveryTime?: string;
   status: "pending" | "processing" | "completed" | "cancelled";
   createdAt: string;
+  costPrice?: number;
+  deliveryCost?: number;
 };
 
 interface OrdersListProps {
@@ -56,8 +58,6 @@ export default function OrdersList({ initialOrders }: OrdersListProps) {
 
       if (!response.ok) throw new Error("Failed to update status");
 
-      const updatedOrder = await response.json();
-
       setOrders((prev) =>
         prev.map((o) => (o._id === id ? { ...o, status: newStatus } : o)),
       );
@@ -71,6 +71,52 @@ export default function OrdersList({ initialOrders }: OrdersListProps) {
     } catch (error) {
       console.error(error);
       toast.error("Не вдалося оновити статус");
+    } finally {
+      setIsUpdating(false);
+    }
+  };
+
+  const [costPrice, setCostPrice] = useState<number>(0);
+  const [deliveryCost, setDeliveryCost] = useState<number>(0);
+
+  // Initialize values when order is selected
+  const handleSelectOrder = (order: Order) => {
+    setSelectedOrder(order);
+    setCostPrice(order.costPrice || 0);
+    setDeliveryCost(order.deliveryCost || 0);
+  };
+
+  const handleSaveCosts = async () => {
+    if (!selectedOrder) return;
+
+    const confirmed = window.confirm(
+      `Ви впевнені, що хочете записати дані в калькулятор для замовлення #${selectedOrder.orderNumber}?`
+    );
+
+    if (!confirmed) return;
+
+    setIsUpdating(true);
+    try {
+      const response = await fetch(`/api/admin/orders/${selectedOrder._id}/costs`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ costPrice, deliveryCost }),
+      });
+
+      if (!response.ok) throw new Error("Failed to update costs");
+
+      setOrders((prev) =>
+        prev.map((o) =>
+          o._id === selectedOrder._id ? { ...o, costPrice, deliveryCost } : o
+        )
+      );
+      
+      setSelectedOrder(prev => prev ? { ...prev, costPrice, deliveryCost } : null);
+
+      toast.success(`Дані для замовлення #${selectedOrder.orderNumber} записано в калькулятор`);
+    } catch (error) {
+      console.error(error);
+      toast.error("Не вдалося зберегти дані");
     } finally {
       setIsUpdating(false);
     }
@@ -115,9 +161,12 @@ export default function OrdersList({ initialOrders }: OrdersListProps) {
               <th className={styles.th}>№</th>
               <th className={styles.th}>Дата</th>
               <th className={styles.th}>Клієнт</th>
-              <th className={styles.th}>Тип</th>
-              <th className={styles.th}>Сума</th>
-              <th className={styles.th}>Статус</th>
+               <th className={styles.th}>Тип</th>
+               <th className={styles.th}>Сума</th>
+               <th className={styles.th}>Собівартість</th>
+               <th className={styles.th}>Доставка</th>
+               <th className={styles.th}>Прибуток</th>
+               <th className={styles.th}>Статус</th>
             </tr>
           </thead>
           <tbody>
@@ -125,7 +174,7 @@ export default function OrdersList({ initialOrders }: OrdersListProps) {
               <tr
                 key={order._id}
                 className={styles.tr}
-                onClick={() => setSelectedOrder(order)}
+                onClick={() => handleSelectOrder(order)}
               >
                 <td className={styles.td}>
                   <span className={styles.orderNumber}>
@@ -150,6 +199,11 @@ export default function OrdersList({ initialOrders }: OrdersListProps) {
                     : "🏃 Самовивіз"}
                 </td>
                 <td className={styles.td}>{order.totalPrice} грн</td>
+                <td className={styles.td}>{order.costPrice || 0} грн</td>
+                <td className={styles.td}>{order.deliveryCost || 0} грн</td>
+                <td className={`${styles.td} ${order.totalPrice - ((order.costPrice || 0) + (order.deliveryCost || 0)) >= 0 ? styles.profit_positive : styles.profit_negative}`}>
+                  {order.totalPrice - ((order.costPrice || 0) + (order.deliveryCost || 0))} грн
+                </td>
                 <td className={styles.td} onClick={(e) => e.stopPropagation()}>
                   <select
                     className={`${styles.statusSelect} ${getStatusClass(
@@ -289,6 +343,43 @@ export default function OrdersList({ initialOrders }: OrdersListProps) {
                     </span>
                   </div>
                 )}
+              </div>
+
+              <div className={styles.section}>
+                <span className={styles.sectionTitle}>Калькулятор (Розрахунок прибутку)</span>
+                <div className={styles.calculatorGrid}>
+                  <div className={styles.infoItem}>
+                    <span className={styles.infoLabel}>Собівартість (грн)</span>
+                    <input 
+                      type="number" 
+                      className={styles.modalInput}
+                      value={costPrice}
+                      onChange={(e) => setCostPrice(Number(e.target.value))}
+                    />
+                  </div>
+                  <div className={styles.infoItem}>
+                    <span className={styles.infoLabel}>Доставка (грн)</span>
+                    <input 
+                      type="number" 
+                      className={styles.modalInput}
+                      value={deliveryCost}
+                      onChange={(e) => setDeliveryCost(Number(e.target.value))}
+                    />
+                  </div>
+                  <div className={styles.infoItem}>
+                    <span className={styles.infoLabel}>Прибуток нетто</span>
+                    <span className={`${styles.infoValue} ${selectedOrder.totalPrice - (costPrice + deliveryCost) >= 0 ? styles.profit_positive : styles.profit_negative}`}>
+                      {selectedOrder.totalPrice - (costPrice + deliveryCost)} грн
+                    </span>
+                  </div>
+                </div>
+                <button 
+                  className={styles.saveCostsBtn} 
+                  onClick={handleSaveCosts}
+                  disabled={isUpdating}
+                >
+                  {isUpdating ? "Запис..." : "Записати в калькулятор"}
+                </button>
               </div>
 
               <div className={styles.section}>

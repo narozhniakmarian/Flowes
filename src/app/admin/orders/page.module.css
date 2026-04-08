@@ -64,6 +64,72 @@
   color: var(--color-accent);
 }
 
+/* Calculator Styles */
+.calculatorGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  background: rgba(245, 89, 70, 0.03);
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid rgba(245, 89, 70, 0.1);
+  margin-bottom: 1rem;
+}
+
+.modalInput {
+  width: 100%;
+  padding: 0.625rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  outline: none;
+  transition: border-color 0.2s;
+  background: white !important;
+  color: var(--color-text);
+}
+
+.modalInput:focus {
+  border-color: var(--color-accent);
+}
+
+.profit_positive {
+  color: #10b981;
+  font-weight: 700;
+}
+
+.profit_negative {
+  color: #ef4444;
+  font-weight: 700;
+}
+
+.saveCostsBtn {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--color-accent);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.saveCostsBtn:hover {
+  background: var(--color-accent-hover);
+}
+
+.saveCostsBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .calculatorGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
 .statusSelect {
   padding: 0.35rem 0.75rem;
   border-radius: 9999px;
