@@ -92,7 +92,7 @@ export function ProductCard({ product, view, onClick }: ProductCardProps) {
             }}
             aria-label={name}
           >
-            →
+            <Image src="/to_cart.svg" alt="" width={32} height={32} />
           </button>
         </div>
       </div>
