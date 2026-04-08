@@ -47,13 +47,11 @@ export function AboutSection() {
         </header>
 
         <div className={styles.blocks}>
-          {/* Block 1 — odd: text LEFT, blob RIGHT — slides in from left */}
           <div
             ref={block1Ref}
             className={`${styles.block} ${styles.blockOdd}`}
           >
             <div className={styles.textSide}>
-              <span className={styles.kicker}>01</span>
               <h3 className={styles.blockTitle}>{t("block1_title")}</h3>
               <p className={styles.blockText}>{t("block1_text")}</p>
             </div>
@@ -65,7 +63,6 @@ export function AboutSection() {
             </div>
           </div>
 
-          {/* Block 2 — even: blob LEFT, text RIGHT — slides in from right */}
           <div
             ref={block2Ref}
             className={`${styles.block} ${styles.blockEven}`}
@@ -77,19 +74,16 @@ export function AboutSection() {
               <span className={styles.blobEmoji}>🌺</span>
             </div>
             <div className={styles.textSide}>
-              <span className={styles.kicker}>02</span>
               <h3 className={styles.blockTitle}>{t("block2_title")}</h3>
               <p className={styles.blockText}>{t("block2_text")}</p>
             </div>
           </div>
 
-          {/* Block 3 — odd: text LEFT, blob RIGHT — slides in from left */}
           <div
             ref={block3Ref}
             className={`${styles.block} ${styles.blockOdd}`}
           >
             <div className={styles.textSide}>
-              <span className={styles.kicker}>03</span>
               <h3 className={styles.blockTitle}>{t("block3_title")}</h3>
               <p className={styles.blockText}>{t("block3_text")}</p>
             </div>

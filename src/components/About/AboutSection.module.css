@@ -1,16 +1,8 @@
-/* ============================================================
-   About Section — CSS Module
-   Variables are declared globally in globals.css; referenced
-   here via var() for clarity.
-   ============================================================ */
-
-/* ── Outer section ────────────────────────────────────────── */
 .section {
   width: 100%;
   margin-top: 32px;
 }
 
-/* ── Glass-card container ─────────────────────────────────── */
 .container {
   max-width: 980px;
   margin: 0 0 0 auto;
@@ -23,7 +15,6 @@
   box-shadow: 0 8px 32px rgba(50, 43, 34, 0.1);
 }
 
-/* ── Section header ───────────────────────────────────────── */
 .sectionHeader {
   text-align: center;
   margin-bottom: 72px;
@@ -47,16 +38,12 @@
   margin: 0 auto;
 }
 
-/* ── Blocks list ──────────────────────────────────────────── */
 .blocks {
   display: flex;
   flex-direction: column;
   gap: 72px;
 }
 
-/* ============================================================
-   Block — grid layout + entrance animation
-   ============================================================ */
 
 .block {
   display: grid;
@@ -64,33 +51,19 @@
   gap: 48px;
   align-items: center;
 
-  /* Initial hidden state; faster transition for exit */
   opacity: 0;
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-/* Odd blocks: text left → slide in from the left */
 .blockOdd {
   transform: translateX(-60px);
 }
 
-/* Even blocks: text right → slide in from the right */
 .blockEven {
   transform: translateX(60px);
 }
 
-/*
- * Visible state — compound selector wins over .blockOdd / .blockEven
- * (two-class specificity 0,2,0 vs. one-class 0,1,0).
- * Slower transition on entrance, fast on exit (see .block above).
- */
-.block.blockVisible {
-  opacity: 1;
-  transform: translateX(0);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
 
-/* ── Text side ────────────────────────────────────────────── */
 .textSide {
   display: flex;
   flex-direction: column;
@@ -122,7 +95,6 @@
   margin: 0;
 }
 
-/* ── Decorative blob side ─────────────────────────────────── */
 .blobSide {
   display: flex;
   align-items: center;
@@ -131,7 +103,6 @@
   background: rgba(245, 89, 70, 0.15);
 }
 
-/* Each block gets a distinct organic blob shape */
 .blob1 {
   border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
 }
@@ -151,9 +122,6 @@
   user-select: none;
 }
 
-/* ============================================================
-   Responsive — Mobile (≤ 768 px)
-   ============================================================ */
 @media (max-width: 768px) {
   .container {
     padding: 40px 24px;
@@ -171,7 +139,6 @@
     grid-template-columns: 1fr;
   }
 
-  /* Hide decorative blobs; only text stacks vertically */
   .blobSide {
     display: none;
   }

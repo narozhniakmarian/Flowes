@@ -13,7 +13,6 @@ import { UpsellSection } from "@/components/ProductPage/UpsellSection";
 import { AdvantagesSection } from "@/components/ProductPage/AdvantagesSection";
 import styles from "./page.module.css";
 
-// ─── SVG Icons ────────────────────────────────────────────────────────────────
 
 function TruckIcon() {
   return (
@@ -68,11 +67,9 @@ function TagIcon() {
   );
 }
 
-// ─── Types ────────────────────────────────────────────────────────────────────
 
 type ModalKey = "delivery" | "photo" | "discount";
 
-// ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function ProductPage() {
   const params = useParams<{ id: string }>();
@@ -104,7 +101,6 @@ export default function ProductPage() {
       });
   }, [id]);
 
-  // Update browser tab title
   useEffect(() => {
     if (!product) return;
     const name = locale === "pl" ? product.name_pl : product.name_ua;
@@ -115,7 +111,6 @@ export default function ProductPage() {
     };
   }, [product, locale]);
 
-  // ─── Not found ─────────────────────────────────────────────────────────────
 
   if (loading) {
     return (
@@ -140,7 +135,6 @@ export default function ProductPage() {
     );
   }
 
-  // ─── Derived values ────────────────────────────────────────────────────────
 
   const name = locale === "pl" ? product.name_pl : product.name_ua;
   const category = locale === "pl" ? product.category_pl : product.category_ua;
@@ -176,11 +170,9 @@ export default function ProductPage() {
     },
   };
 
-  // ─── Render ────────────────────────────────────────────────────────────────
 
   return (
     <main className={styles.page}>
-      {/* ── Back button ──────────────────────────────────────────────────── */}
       <button
         type="button"
         className={styles.backBtn}
@@ -189,9 +181,7 @@ export default function ProductPage() {
         ←&nbsp;{t("back")}
       </button>
 
-      {/* ── Two-column layout ────────────────────────────────────────────── */}
       <section className={styles.layout}>
-        {/* Left — image */}
         <div className={styles.imageCol}>
           <div className={styles.imageWrap}>
             <Image
@@ -205,12 +195,10 @@ export default function ProductPage() {
           </div>
         </div>
 
-        {/* Right — info */}
         <div className={styles.infoCol}>
           <span className={styles.categoryBadge}>{category}</span>
           <h1 className={styles.productName}>{name}</h1>
 
-          {/* Ingredients */}
           <div className={styles.ingredients}>
             <p className={styles.sectionLabel}>{t("composition")}</p>
             <ul className={styles.ingredientList}>
@@ -224,8 +212,6 @@ export default function ProductPage() {
               ))}
             </ul>
           </div>
-
-          {/* Price + CTA */}
           <div className={styles.priceBlock}>
             <div className={styles.priceRow}>
               <span className={styles.priceLabel}>{t("price")}</span>
@@ -241,7 +227,6 @@ export default function ProductPage() {
             </button>
           </div>
 
-          {/* Info buttons */}
           <div className={styles.infoButtons}>
             {infoButtons.map(({ key, icon, label }) => (
               <button
@@ -258,13 +243,10 @@ export default function ProductPage() {
         </div>
       </section>
 
-      {/* ── Upsell ───────────────────────────────────────────────────────── */}
       <UpsellSection currentId={id} />
 
-      {/* ── Advantages ───────────────────────────────────────────────────── */}
       <AdvantagesSection />
 
-      {/* ── Info modal ───────────────────────────────────────────────────── */}
       {modal && (
         <InfoModal
           title={modalContent[modal].title}
