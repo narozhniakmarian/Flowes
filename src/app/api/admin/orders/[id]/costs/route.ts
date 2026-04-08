@@ -26,7 +26,6 @@ export async function PUT(
 
     let order;
     if (id.length === 24) {
-      // Try finding by MongoDB _id first if it looks like one
       order = await Order.findByIdAndUpdate(
         id,
         {
@@ -40,7 +39,6 @@ export async function PUT(
     }
 
     if (!order) {
-      // Fallback to orderNumber
       order = await Order.findOneAndUpdate(
         { orderNumber: id },
         {

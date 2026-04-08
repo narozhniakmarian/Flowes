@@ -67,7 +67,6 @@ export function GallerySection() {
   return (
     <section id="gallery" className={styles.section}>
       <div className={styles.card}>
-        {/* ── Header ── */}
         <div className={styles.header}>
           <h2 className={styles.title}>{t("title", "Galeria")}</h2>
           <p className={styles.subtitle}>
@@ -75,7 +74,6 @@ export function GallerySection() {
           </p>
         </div>
 
-        {/* ── Grid ── */}
         <div className={styles.grid}>
           {visibleImages.map((img, i) => (
             <div
@@ -103,7 +101,6 @@ export function GallerySection() {
           ))}
         </div>
 
-        {/* ── Load more ── */}
         {hasMore && (
           <div className={styles.loadMoreWrapper}>
             <button
@@ -117,7 +114,6 @@ export function GallerySection() {
         )}
       </div>
 
-      {/* ── Lightbox ── */}
       {lightboxIndex >= 0 && (
         <Lightbox
           images={lightboxUrls}

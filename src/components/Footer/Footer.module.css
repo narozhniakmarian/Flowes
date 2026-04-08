@@ -1,4 +1,3 @@
-/* ─── Footer wrapper ─────────────────────────────────────────────────────── */
 .footer {
     background: rgba(50, 43, 34, 0.92);
     color: rgba(255, 255, 255, 0.85);
@@ -7,7 +6,6 @@
     overflow: hidden;
 }
 
-/* Subtle top-edge glow so it bleeds into the last section */
 .footer::before {
     content: "";
     position: absolute;
@@ -15,23 +13,19 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(255, 133, 98, 0.4) 30%,
-        rgba(245, 89, 70, 0.6) 50%,
-        rgba(255, 133, 98, 0.4) 70%,
-        transparent 100%
-    );
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 133, 98, 0.4) 30%,
+            rgba(245, 89, 70, 0.6) 50%,
+            rgba(255, 133, 98, 0.4) 70%,
+            transparent 100%);
 }
 
-/* ─── Inner container ────────────────────────────────────────────────────── */
 .inner {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* ─── Three-column grid ──────────────────────────────────────────────────── */
 .columns {
     display: grid;
     grid-template-columns: 1.4fr 1fr 1fr;
@@ -39,14 +33,12 @@
     align-items: start;
 }
 
-/* ─── Single column ──────────────────────────────────────────────────────── */
 .column {
     display: flex;
     flex-direction: column;
     gap: 14px;
 }
 
-/* ─── Brand (column 1) ───────────────────────────────────────────────────── */
 .brand {
     display: flex;
     align-items: center;
@@ -76,7 +68,6 @@
     max-width: 280px;
 }
 
-/* ─── Social icons ───────────────────────────────────────────────────────── */
 .socials {
     display: flex;
     gap: 10px;
@@ -108,7 +99,6 @@
     transform: translateY(-2px);
 }
 
-/* ─── Column heading ─────────────────────────────────────────────────────── */
 .colTitle {
     font-size: 11px;
     font-weight: 700;
@@ -120,7 +110,6 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-/* ─── Navigation list (column 2) ─────────────────────────────────────────── */
 .navList {
     display: flex;
     flex-direction: column;
@@ -164,7 +153,6 @@
     width: 14px;
 }
 
-/* ─── Contact list (column 3) ────────────────────────────────────────────── */
 .contactList {
     list-style: none;
     margin: 0;
@@ -210,7 +198,6 @@ a.contactValue:hover {
     color: #f55946;
 }
 
-/* ─── Bottom bar ─────────────────────────────────────────────────────────── */
 .bottom {
     margin-top: 52px;
     padding-top: 22px;
@@ -256,14 +243,12 @@ a.contactValue:hover {
     user-select: none;
 }
 
-/* ─── Responsive ─────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
     .columns {
         grid-template-columns: 1fr 1fr;
         gap: 40px;
     }
 
-    /* Brand column spans full width on tablet */
     .column:first-child {
         grid-column: 1 / -1;
     }

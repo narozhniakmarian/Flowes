@@ -1,5 +1,3 @@
-/* ─── Section ──────────────────────────────────────────────────────────────── */
-
 .section {
   margin-bottom: 56px;
 }
@@ -11,8 +9,6 @@
   margin: 0 0 24px;
   letter-spacing: -0.01em;
 }
-
-/* ─── Carousel wrapper ─────────────────────────────────────────────────────── */
 
 .carouselWrap {
   position: relative;
@@ -34,8 +30,6 @@
   display: none;
 }
 
-/* ─── Card ─────────────────────────────────────────────────────────────────── */
-
 .card {
   flex: 0 0 240px;
   scroll-snap-align: start;
@@ -53,8 +47,6 @@
   box-shadow: 0 16px 40px rgba(50, 43, 34, 0.14);
 }
 
-/* ─── Card image ───────────────────────────────────────────────────────────── */
-
 .cardImageWrap {
   position: relative;
   width: 100%;
@@ -70,8 +62,6 @@
 .card:hover .cardImage {
   transform: scale(1.05);
 }
-
-/* ─── Card info ────────────────────────────────────────────────────────────── */
 
 .cardInfo {
   padding: 14px 16px 16px;
@@ -129,12 +119,10 @@
   transform: scale(0.95);
 }
 
-/* ─── Arrow buttons ────────────────────────────────────────────────────────── */
-
 .arrow {
   position: absolute;
   top: 50%;
-  transform: translateY(calc(-50% - 12px)); /* account for padding-bottom */
+  transform: translateY(calc(-50% - 12px));
   z-index: 10;
   width: 40px;
   height: 40px;
@@ -180,8 +168,6 @@
   opacity: 0 !important;
   pointer-events: none !important;
 }
-
-/* ─── Mobile ───────────────────────────────────────────────────────────────── */
 
 @media (max-width: 860px) {
   .carousel {

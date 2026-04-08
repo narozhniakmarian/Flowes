@@ -102,21 +102,18 @@
     background: var(--color-accent-hover);
 }
 
-/* ─── Grid layout ─── */
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
 
-/* ─── List layout ─── */
 .list {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-/* ─── Load more ─── */
 .loadMore {
     display: flex;
     justify-content: center;
@@ -145,7 +142,6 @@
     background: rgba(254, 255, 223, 1);
 }
 
-/* ─── Responsive ─── */
 .empty {
     grid-column: 1 / -1;
     text-align: center;
@@ -157,8 +153,6 @@
     border-radius: 20px;
     border: 1px dashed rgba(255, 133, 98, 0.3);
 }
-
-/* Sidebar layout removed as filters are always mobile-style */
 
 @media (max-width: 900px) {
     .sectionWrapper {

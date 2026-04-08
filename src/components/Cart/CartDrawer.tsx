@@ -7,7 +7,6 @@ import { useLanguage } from "@/providers/LanguageProvider";
 import { useTranslations } from "@/lib/useTranslations";
 import styles from "./CartDrawer.module.css";
 
-// ─── Sanitize input (strip HTML tags and script content) ──────────────────────
 function sanitize(value: string): string {
   return value
     .replace(/<[^>]*>/g, "")
@@ -15,8 +14,6 @@ function sanitize(value: string): string {
     .replace(/on\w+\s*=/gi, "")
     .trim();
 }
-
-// ─── Confirm remove modal ─────────────────────────────────────────────────────
 function ConfirmModal({
   name,
   onConfirm,
@@ -60,7 +57,6 @@ function ConfirmModal({
   );
 }
 
-// ─── Form types ───────────────────────────────────────────────────────────────
 type FormData = {
   firstName: string;
   lastName: string;
@@ -81,7 +77,6 @@ const EMPTY_FORM: FormData = {
   time: "",
 };
 
-// ─── CartDrawer ────────────────────────────────────────────────────────────────
 export function CartDrawer() {
   const {
     items,
@@ -110,7 +105,6 @@ export function CartDrawer() {
   const drawerRef = useRef<HTMLDivElement>(null);
   const firstFocusRef = useRef<HTMLButtonElement>(null);
 
-  // Focus trap and scroll lock
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -123,7 +117,6 @@ export function CartDrawer() {
     };
   }, [isOpen]);
 
-  // Close on Escape
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") closeCart();
@@ -132,7 +125,6 @@ export function CartDrawer() {
     return () => document.removeEventListener("keydown", handleKey);
   }, [isOpen, closeCart]);
 
-  // ─── Decrement logic ──────────────────────────────────────────────────────
   const handleDecrement = (productId: string, name: string, qty: number) => {
     if (qty === 1) {
       setConfirmId(productId);
@@ -146,8 +138,6 @@ export function CartDrawer() {
     if (confirmId) removeItem(confirmId);
     setConfirmId(null);
   };
-
-  // ─── Form ─────────────────────────────────────────────────────────────────
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
@@ -207,7 +197,6 @@ export function CartDrawer() {
       clearCart();
       setForm(EMPTY_FORM);
     } catch {
-      // error handling — form preserved
     } finally {
       setSubmitting(false);
     }
@@ -218,14 +207,12 @@ export function CartDrawer() {
 
   return (
     <>
-      {/* Backdrop */}
       <div
         className={[styles.overlay, isOpen ? styles.overlayOpen : ""].join(" ")}
         onClick={closeCart}
         aria-hidden="true"
       />
 
-      {/* Drawer */}
       <div
         ref={drawerRef}
         className={[styles.drawer, isOpen ? styles.drawerOpen : ""].join(" ")}
@@ -233,7 +220,6 @@ export function CartDrawer() {
         aria-label={t("title")}
         aria-modal="true"
       >
-        {/* Header */}
         <div className={styles.header}>
           <div className={styles.headerLeft}>
             <span className={styles.title}>{t("title")}</span>
@@ -252,7 +238,6 @@ export function CartDrawer() {
           </button>
         </div>
 
-        {/* Success state */}
         {submitted ? (
           <div className={styles.success}>
             <div className={styles.successIcon}>🌸</div>
@@ -270,19 +255,16 @@ export function CartDrawer() {
             </button>
           </div>
         ) : items.length === 0 ? (
-          /* Empty state */
           <div className={styles.empty}>
             <div className={styles.emptyIcon}>🛒</div>
             <p className={styles.emptyText}>{t("empty")}</p>
           </div>
         ) : (
-          /* Cart content */
           <form
             onSubmit={handleSubmit}
             noValidate
             className={styles.form}
           >
-            {/* Items */}
             <ul className={styles.items} role="list">
               {items.map((item) => {
                 const name = productName(item);
@@ -329,9 +311,7 @@ export function CartDrawer() {
               })}
             </ul>
 
-            {/* Delivery + totals + form */}
             <div className={styles.footer}>
-              {/* Delivery type */}
               <div className={styles.delivery}>
                 <p className={styles.deliveryLabel}>{t("delivery_type")}</p>
                 <div className={styles.deliveryOptions}>
@@ -377,7 +357,6 @@ export function CartDrawer() {
                 )}
               </div>
 
-              {/* Totals */}
               <div className={styles.totals}>
                 <div className={styles.totalRow}>
                   <span>
@@ -401,7 +380,6 @@ export function CartDrawer() {
                 </div>
               </div>
 
-              {/* Checkout form fields */}
               <div className={styles.checkoutFields}>
                 <p className={styles.checkoutTitle}>{t("your_details")}</p>
                 <div className={styles.formRow}>
@@ -501,7 +479,6 @@ export function CartDrawer() {
                 </div>
               </div>
 
-              {/* Submit */}
               <button
                 type="submit"
                 className={styles.checkoutBtn}
@@ -510,12 +487,10 @@ export function CartDrawer() {
                 {submitting ? t("submitting") : t("submit")}
               </button>
             </div>
-            {/* end footer */}
           </form>
         )}
       </div>
 
-      {/* Confirm remove modal */}
       {confirmId && (
         <ConfirmModal
           name={confirmName}

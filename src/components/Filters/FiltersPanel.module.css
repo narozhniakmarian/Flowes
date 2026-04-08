@@ -2,7 +2,6 @@
     display: none;
 }
 
-/* ─── Panel card ─── */
 .panel {
     background: rgba(254, 255, 223, 0.8);
     backdrop-filter: blur(16px);
@@ -15,7 +14,6 @@
     gap: 20px;
 }
 
-/* ─── Panel title ─── */
 .panelTitle {
     font-size: 12px;
     text-transform: uppercase;
@@ -25,7 +23,6 @@
     margin: 0 0 4px;
 }
 
-/* ─── Category group ─── */
 .categoryGroup {
     display: flex;
     flex-direction: column;
@@ -135,14 +132,12 @@
     padding: 1px 7px;
 }
 
-/* ─── Divider ─── */
 .divider {
     height: 1px;
     background: rgba(255, 133, 98, 0.18);
     margin: 0;
 }
 
-/* ─── Price range ─── */
 .priceBlock {
     display: flex;
     flex-direction: column;
@@ -167,7 +162,6 @@
     color: var(--color-text);
 }
 
-/* MUI Slider overrides */
 .sliderRoot {
     color: var(--color-accent) !important;
     height: 4px !important;
@@ -189,7 +183,6 @@
     box-shadow: 0 2px 16px rgba(245, 89, 70, 0.45) !important;
 }
 
-/* ─── Reset button ─── */
 .resetBtn {
     display: flex;
     align-items: center;
@@ -212,7 +205,6 @@
     transform: translateY(-1px);
 }
 
-/* ─── Promo banner ─── */
 .promoBanner {
     border-radius: 20px;
     overflow: hidden;
@@ -270,7 +262,7 @@
     writing-mode: vertical-lr;
     letter-spacing: 0.12em;
     box-shadow: 4px 0 24px rgba(245, 89, 70, 0.4);
-    transition: 
+    transition:
         padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
         background 0.3s ease,
         transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
@@ -361,5 +353,3 @@
     justify-content: center;
     line-height: 1;
 }
-
-/* Sidebar logic is now global (always hidden behind toggle) */

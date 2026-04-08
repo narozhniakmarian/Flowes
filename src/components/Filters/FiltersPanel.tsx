@@ -47,12 +47,11 @@ export function FiltersPanel({ filters, onChange }: FiltersPanelProps) {
       .catch((err) => console.error("Failed to load categories:", err));
 
     const handleScroll = () => {
-      // Show button after scrolling past 80% of the viewport height (approx end of Hero)
       setIsVisible(window.scrollY > window.innerHeight * 0.8);
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -81,7 +80,6 @@ export function FiltersPanel({ filters, onChange }: FiltersPanelProps) {
 
   const panelContent = (
     <div className={styles.panel}>
-      {/* Header row */}
       <div className={styles.priceRow}>
         <span className={styles.panelTitle}>{t("title")}</span>
         {hasActiveFilters && (
@@ -91,7 +89,6 @@ export function FiltersPanel({ filters, onChange }: FiltersPanelProps) {
         )}
       </div>
 
-      {/* Categories group */}
       <div className={styles.categoryGroup}>
         <button
           type="button"
@@ -176,7 +173,6 @@ export function FiltersPanel({ filters, onChange }: FiltersPanelProps) {
 
       <hr className={styles.divider} />
 
-      {/* Price range */}
       <div className={styles.priceBlock}>
         <div className={styles.priceRow}>
           <span className={styles.categoryGroupLabel}>{t("price")}</span>
@@ -213,7 +209,6 @@ export function FiltersPanel({ filters, onChange }: FiltersPanelProps) {
 
       <hr className={styles.divider} />
 
-      {/* Promo banner */}
       <div className={styles.promoBanner}>
         <p className={styles.promoBannerTag}>{t("promo_tag")}</p>
         <p className={styles.promoBannerTitle}>{t("promo_title")}</p>
@@ -224,12 +219,10 @@ export function FiltersPanel({ filters, onChange }: FiltersPanelProps) {
 
   return (
     <>
-      {/* Desktop sidebar */}
       <aside className={styles.sidebar} aria-label={t("title")}>
         {panelContent}
       </aside>
 
-      {/* Mobile toggle button */}
       <button
         type="button"
         className={[
@@ -242,7 +235,6 @@ export function FiltersPanel({ filters, onChange }: FiltersPanelProps) {
         {"»"}
       </button>
 
-      {/* Mobile overlay */}
       <div
         className={[
           styles.mobileOverlay,

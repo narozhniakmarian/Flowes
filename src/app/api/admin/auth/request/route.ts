@@ -4,7 +4,6 @@ import { rateLimit, getClientIp, RATE_LIMIT_STRICT } from "@/lib/rateLimit";
 import { createPendingRequest, sendTelegramLoginRequest } from "@/lib/adminAuth";
 
 export async function POST(req: Request) {
-  // Rate limit: 5 attempts per minute per IP
   const ip = getClientIp(req);
   const { allowed, retryAfterMs } = rateLimit(ip, "admin-auth", RATE_LIMIT_STRICT);
   if (!allowed) {
@@ -17,7 +16,6 @@ export async function POST(req: Request) {
     );
   }
 
-  // 27 bytes = 54 hex chars; "approve:" prefix = 62 bytes total — within Telegram's 64-byte callback_data limit
   const requestId = randomBytes(27).toString("hex");
   const userAgent = req.headers.get("user-agent") || "Unknown";
   await createPendingRequest(requestId, { userAgent, ip });

@@ -6,7 +6,7 @@
     backdrop-filter: blur(14px);
     border-radius: 24px;
     overflow: hidden;
-    box-shadow: 
+    box-shadow:
         -6px -6px 14px rgba(255, 255, 255, 0.8),
         6px 6px 14px rgba(50, 43, 34, 0.08);
     transition:
@@ -18,12 +18,11 @@
 
 .card:hover {
     transform: translateY(-6px);
-    box-shadow: 
+    box-shadow:
         -8px -8px 20px rgba(255, 255, 255, 0.9),
         8px 8px 20px rgba(50, 43, 34, 0.12);
 }
 
-/* ─── Grid layout ─── */
 .cardGrid {
     flex-direction: column;
 }
@@ -38,7 +37,6 @@
     padding: 16px 20px 20px;
 }
 
-/* ─── List layout ─── */
 .cardList {
     flex-direction: row;
     align-items: stretch;
@@ -58,13 +56,11 @@
     justify-content: space-between;
 }
 
-/* ─── Image ─── */
 .imageWrap {
     position: relative;
     overflow: hidden;
 }
 
-/* Inverted border radius on image corners — bottom corners cut inward */
 .imageWrap::after {
     content: "";
     position: absolute;
@@ -88,7 +84,6 @@
     transform: scale(1.05);
 }
 
-/* ─── Badge ─── */
 .badge {
     position: absolute;
     top: 12px;
@@ -104,7 +99,6 @@
     border-radius: 999px;
 }
 
-/* ─── Info block ─── */
 .info,
 .cardInfo {
     display: flex;
@@ -230,13 +224,11 @@
     transform: scale(1.04);
 }
 
-/* ─── Mobile trigger (active state) ─── */
 .cardActive {
     transform: translateY(-6px);
     box-shadow: 0 24px 56px rgba(50, 43, 34, 0.18);
 }
 
-/* ─── Responsive ─── */
 @media (max-width: 640px) {
     .cardList {
         flex-direction: column;

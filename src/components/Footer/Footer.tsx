@@ -51,7 +51,6 @@ export function Footer() {
       <div className={styles.inner}>
         <div className={styles.columns}>
 
-          {/* ── Column 1: Brand ── */}
           <div className={styles.column}>
             <Link href="/" className={styles.brand}>
               <Image
@@ -96,7 +95,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* ── Column 2: Navigation ── */}
           <div className={styles.column}>
             <h3 className={styles.colTitle}>
               {t("footer.nav_title", "Nawigacja")}
@@ -114,7 +112,6 @@ export function Footer() {
             </nav>
           </div>
 
-          {/* ── Column 3: Contact ── */}
           <div className={styles.column}>
             <h3 className={styles.colTitle}>
               {t("footer.contact_title", "Kontakt")}
@@ -149,8 +146,6 @@ export function Footer() {
             </ul>
           </div>
         </div>
-
-        {/* ── Bottom bar ── */}
         <div className={styles.bottom}>
           <span className={styles.copyright}>© 2025 FlowerS</span>
           <div className={styles.legalLinks}>

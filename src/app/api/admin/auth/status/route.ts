@@ -15,7 +15,6 @@ export async function GET(req: Request) {
   const status = getPendingStatus(requestId);
 
   if (status === "approved") {
-    // Mint JWT and set httpOnly session cookie
     await createAdminSession();
   }
 

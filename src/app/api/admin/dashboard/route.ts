@@ -10,7 +10,6 @@ export async function GET() {
     const currentYear = new Date().getFullYear();
     const currentMonth = new Date().getMonth();
 
-    // Parallel queries
     const [
       totalProducts,
       totalOrders,
@@ -19,18 +18,14 @@ export async function GET() {
       monthlyRevenue,
       ordersByMonth
     ] = await Promise.all([
-      // Total products count
       Product.countDocuments(),
 
-      // Total orders all time
       Order.countDocuments(),
 
-      // Total revenue all time
       Order.aggregate([
         { $group: { _id: null, total: { $sum: "$totalPrice" } } }
       ]).then(res => res[0]?.total || 0),
 
-      // Orders this month
       Order.countDocuments({
         createdAt: {
           $gte: new Date(currentYear, currentMonth, 1),
@@ -38,7 +33,6 @@ export async function GET() {
         }
       }),
 
-      // Revenue this month
       Order.aggregate([
         {
           $match: {
@@ -51,7 +45,6 @@ export async function GET() {
         { $group: { _id: null, total: { $sum: "$totalPrice" } } }
       ]).then(res => res[0]?.total || 0),
 
-      // Last 12 months orders + revenue
       Order.aggregate([
         {
           $match: {

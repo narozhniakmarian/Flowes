@@ -4,7 +4,6 @@ import { resolvePendingRequest, answerCallbackQuery } from "@/lib/adminAuth";
 const WEBHOOK_SECRET = process.env.TELEGRAM_WEBHOOK_SECRET ?? "";
 
 export async function POST(req: Request) {
-  // Verify the request came from Telegram using the secret token header
   const incomingSecret = req.headers.get("x-telegram-bot-api-secret-token") ?? "";
   if (!WEBHOOK_SECRET || incomingSecret !== WEBHOOK_SECRET) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -14,10 +13,9 @@ export async function POST(req: Request) {
   try {
     body = await req.json();
   } catch {
-    return NextResponse.json({ ok: true }); // Ignore malformed payloads
+    return NextResponse.json({ ok: true });
   }
 
-  // Only handle callback_query updates (button presses)
   const callbackQuery = body?.callback_query as
     | { id: string; data?: string }
     | undefined;

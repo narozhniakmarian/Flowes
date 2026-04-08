@@ -25,7 +25,6 @@ export function Lightbox({
 
   const currentImage = images[index];
 
-  /* ── Body scroll lock ── */
   useEffect(() => {
     const original = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -34,7 +33,6 @@ export function Lightbox({
     };
   }, []);
 
-  /* ── Keyboard navigation ── */
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft") onPrev();
@@ -45,7 +43,6 @@ export function Lightbox({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [onClose, onPrev, onNext]);
 
-  /* ── Touch / swipe ── */
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
     touchStartY.current = e.touches[0].clientY;
@@ -54,7 +51,6 @@ export function Lightbox({
   const handleTouchEnd = (e: React.TouchEvent) => {
     const dx = e.changedTouches[0].clientX - touchStartX.current;
     const dy = e.changedTouches[0].clientY - touchStartY.current;
-    // Only trigger swipe if horizontal movement dominates
     if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
       if (dx < 0) onNext();
       else onPrev();
@@ -73,7 +69,6 @@ export function Lightbox({
       aria-modal="true"
       aria-label={t("title", "Galeria")}
     >
-      {/* ── Close ── */}
       <button
         type="button"
         className={styles.closeBtn}
@@ -86,7 +81,6 @@ export function Lightbox({
         ×
       </button>
 
-      {/* ── Prev ── */}
       <button
         type="button"
         className={`${styles.navBtn} ${styles.navBtnPrev}`}
@@ -99,12 +93,10 @@ export function Lightbox({
         ‹
       </button>
 
-      {/* ── Image ── */}
       <div
         className={styles.imageContainer}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* key change forces remount → re-triggers CSS fadeIn animation */}
         <img
           key={`lightbox-${index}`}
           src={currentImage}
@@ -114,7 +106,6 @@ export function Lightbox({
         />
       </div>
 
-      {/* ── Next ── */}
       <button
         type="button"
         className={`${styles.navBtn} ${styles.navBtnNext}`}
@@ -127,7 +118,6 @@ export function Lightbox({
         ›
       </button>
 
-      {/* ── Counter ── */}
       <div
         className={styles.counter}
         onClick={(e) => e.stopPropagation()}

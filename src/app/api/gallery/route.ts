@@ -16,8 +16,7 @@ export async function POST(req: Request) {
   try {
     await dbConnect();
     const body = await req.json();
-    
-    // Auto-generate id from publicId if missing
+
     if (!body.id && body.publicId) {
       body.id = body.publicId;
     }

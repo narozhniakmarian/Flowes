@@ -5,7 +5,6 @@ import { rateLimit, getClientIp, RATE_LIMIT_STANDARD } from "@/lib/rateLimit";
 
 export async function GET(req: Request) {
   try {
-    // Rate limiting — standard: 30 req/min per IP
     const ip = getClientIp(req);
     const { allowed, retryAfterMs } = rateLimit(ip, "products", RATE_LIMIT_STANDARD);
     if (!allowed) {
@@ -38,7 +37,6 @@ export async function POST(req: Request) {
     await dbConnect();
     const body = await req.json();
 
-    // Check if product with this id already exists
     const existing = await Product.findOne({ id: body.id });
     if (existing) {
       return NextResponse.json(

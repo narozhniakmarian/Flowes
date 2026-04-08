@@ -29,7 +29,6 @@ export async function GET() {
 
 export async function POST(req: Request) {
   try {
-    // 1. Rate limiting — strict: 5 req/min per IP
     const ip = getClientIp(req);
     const { allowed, retryAfterMs } = rateLimit(
       ip,
@@ -46,7 +45,6 @@ export async function POST(req: Request) {
       );
     }
 
-    // 2. Parse raw body
     let rawBody: unknown;
     try {
       rawBody = await req.json();
@@ -61,11 +59,8 @@ export async function POST(req: Request) {
       );
     }
 
-    // 3. Sanitize — strips NoSQL operators ($), prototype pollution keys,
-    //    HTML tags, XSS vectors, and null bytes from all string values
     const sanitized = sanitizeObject(rawBody as Record<string, unknown>);
 
-    // 4. Zod schema validation — type-safe, constraint-checked
     const result = CreateOrderSchema.safeParse(sanitized);
     if (!result.success) {
       return NextResponse.json(
@@ -83,7 +78,6 @@ export async function POST(req: Request) {
       deliveryTime,
     } = result.data;
 
-    // 5. Persist to database
     await dbConnect();
     const orderNumber = await generateNextOrderNumber();
 
@@ -98,13 +92,11 @@ export async function POST(req: Request) {
       status: "pending",
     });
 
-    // Use already generated orderNumber - guaranteed to exist
     const orderData = {
       ...newOrder.toObject(),
       orderNumber,
     };
 
-    // Send telegram notification
     try {
       await sendTelegramNotification(formatOrderMessage(orderData));
     } catch (err) {
