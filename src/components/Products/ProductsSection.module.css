@@ -5,11 +5,12 @@
     margin-left: auto;
     margin-right: auto;
     padding: 0 40px;
+    position: relative;
 }
 
 .sectionWrapper {
     display: flex;
-    gap: 48px;
+    gap: 38px;
     align-items: start;
 }
 

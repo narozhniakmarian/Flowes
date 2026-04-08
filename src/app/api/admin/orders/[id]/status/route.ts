@@ -18,32 +18,31 @@ export async function PUT(
     await dbConnect();
 
     const id = params.id;
-    console.log("Attempting to update order status:", {
-      id,
-      status: body.status,
-    });
+    console.log('Attempting to update order status:', { id, status: body.status });
 
-    const order = await Order.findByIdAndUpdate(
-      id,
-      {
-        $set: {
-          status: body.status,
-        },
-      },
-      { new: true },
-    );
+    let order;
+    if (id.length === 24) {
+      order = await Order.findByIdAndUpdate(
+        id,
+        { $set: { status: body.status } },
+        { new: true }
+      );
+    }
 
     if (!order) {
-      console.log("Order not found with id:", id);
+      order = await Order.findOneAndUpdate(
+        { orderNumber: id },
+        { $set: { status: body.status } },
+        { new: true }
+      );
+    }
+
+    if (!order) {
+      console.log('Order not found with ID or orderNumber:', id);
       return NextResponse.json({ error: "Order not found" }, { status: 404 });
     }
 
-    console.log(
-      "Successfully updated status for order:",
-      order._id,
-      "to:",
-      order.status,
-    );
+    console.log('Successfully updated status for order:', order.orderNumber);
 
     return NextResponse.json(order);
   } catch (error) {

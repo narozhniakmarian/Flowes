@@ -57,21 +57,41 @@ export function ProductsSection() {
         const productCategoryUa = p.category_ua.toLowerCase().trim();
 
         // Check if any selected category slug matches this product
-        categoryMatch = filters.categories.some(selectedSlug => {
+        categoryMatch = filters.categories.some((selectedSlug) => {
           // Find the category object in our DB categories
-          const catObj = dbCategories.find(c => c.slug === selectedSlug);
+          const catObj = dbCategories.find((c) => c.slug === selectedSlug);
           if (catObj) {
-            return catObj.name_pl.toLowerCase().trim() === productCategoryPl || 
-                   catObj.name_ua.toLowerCase().trim() === productCategoryUa;
+            return (
+              catObj.name_pl.toLowerCase().trim() === productCategoryPl ||
+              catObj.name_ua.toLowerCase().trim() === productCategoryUa
+            );
           }
-          
+
           // Fallback: try to generate slug from product category name and compare
           const generatedSlug = productCategoryPl
             .replace(/\s+/g, "-")
-            .replace(/[ąćęłńóśźż]/g, (c: string) => ({ą:'a',ć:'c',ę:'e',ł:'l',ń:'n',ó:'o',ś:'s',ź:'z',ż:'z'})[c] || c)
+            .replace(
+              /[ąćęłńóśźż]/g,
+              (c: string) =>
+                ({
+                  ą: "a",
+                  ć: "c",
+                  ę: "e",
+                  ł: "l",
+                  ń: "n",
+                  ó: "o",
+                  ś: "s",
+                  ź: "z",
+                  ż: "z",
+                })[c] || c,
+            )
             .replace(/[^a-z0-9-]/g, "");
-            
-          return generatedSlug === selectedSlug || selectedSlug.includes(generatedSlug) || generatedSlug.includes(selectedSlug);
+
+          return (
+            generatedSlug === selectedSlug ||
+            selectedSlug.includes(generatedSlug) ||
+            generatedSlug.includes(selectedSlug)
+          );
         });
       }
 
@@ -96,7 +116,7 @@ export function ProductsSection() {
   return (
     <section id="products" className={styles.section}>
       <div className={styles.sectionWrapper}>
-        <FiltersPanel filters={filters} onChange={setFilters} />
+        {/* <FiltersPanel filters={filters} onChange={setFilters} /> */}
 
         <div className={styles.sectionContent}>
           <div className={styles.sectionHeader}>

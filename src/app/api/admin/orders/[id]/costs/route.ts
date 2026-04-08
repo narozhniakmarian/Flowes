@@ -17,30 +17,48 @@ export async function PUT(
     const body = await req.json();
     await dbConnect();
 
-    const id = params.id;
+    const id = params.id.replace('#', '');
     console.log("Attempting to update order costs:", {
       id,
       costPrice: body.costPrice,
       deliveryCost: body.deliveryCost,
     });
 
-    const order = await Order.findByIdAndUpdate(
-      id,
-      {
-        $set: {
-          costPrice: body.costPrice,
-          deliveryCost: body.deliveryCost,
+    let order;
+    if (id.length === 24) {
+      // Try finding by MongoDB _id first if it looks like one
+      order = await Order.findByIdAndUpdate(
+        id,
+        {
+          $set: {
+            costPrice: body.costPrice,
+            deliveryCost: body.deliveryCost,
+          },
         },
-      },
-      { new: true },
-    );
+        { new: true },
+      );
+    }
 
     if (!order) {
-      console.log("Order not found with id:", id);
+      // Fallback to orderNumber
+      order = await Order.findOneAndUpdate(
+        { orderNumber: id },
+        {
+          $set: {
+            costPrice: body.costPrice,
+            deliveryCost: body.deliveryCost,
+          },
+        },
+        { new: true },
+      );
+    }
+
+    if (!order) {
+      console.log("Order not found with ID or orderNumber:", id);
       return NextResponse.json({ error: "Order not found" }, { status: 404 });
     }
 
-    console.log("Successfully updated order:", order._id, "Resulting fields:", {
+    console.log("Successfully updated order:", order.orderNumber || order._id, "Resulting fields:", {
       costPrice: order.costPrice,
       deliveryCost: order.deliveryCost,
     });

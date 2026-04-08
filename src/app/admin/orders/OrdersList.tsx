@@ -42,12 +42,13 @@ export default function OrdersList({ initialOrders }: OrdersListProps) {
   const [isUpdating, setIsUpdating] = useState(false);
 
   const handleStatusChange = async (
+    id: string,
     orderNumber: string,
     newStatus: OrderStatus,
   ) => {
     setIsUpdating(true);
     try {
-      const response = await fetch(`/api/admin/orders/${orderNumber}/status`, {
+      const response = await fetch(`/api/admin/orders/${id}/status`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status: newStatus }),
@@ -58,11 +59,9 @@ export default function OrdersList({ initialOrders }: OrdersListProps) {
       const updatedOrder = await response.json();
 
       setOrders((prev) =>
-        prev.map((o) =>
-          o.orderNumber === orderNumber ? { ...o, status: newStatus } : o,
-        ),
+        prev.map((o) => (o._id === id ? { ...o, status: newStatus } : o)),
       );
-      if (selectedOrder?.orderNumber === orderNumber) {
+      if (selectedOrder?._id === id) {
         setSelectedOrder((prev) =>
           prev ? { ...prev, status: newStatus } : null,
         );
@@ -159,6 +158,7 @@ export default function OrdersList({ initialOrders }: OrdersListProps) {
                     value={order.status}
                     onChange={(e) =>
                       handleStatusChange(
+                        order._id,
                         order.orderNumber,
                         e.target.value as OrderStatus,
                       )
@@ -217,6 +217,7 @@ export default function OrdersList({ initialOrders }: OrdersListProps) {
                     value={selectedOrder.status}
                     onChange={(e) =>
                       handleStatusChange(
+                        selectedOrder._id,
                         selectedOrder.orderNumber,
                         e.target.value as OrderStatus,
                       )
