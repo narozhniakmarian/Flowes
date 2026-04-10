@@ -47,11 +47,9 @@ export function AboutSection() {
         </header>
 
         <div className={styles.blocks}>
-          <div
-            ref={block1Ref}
-            className={`${styles.block} ${styles.blockOdd}`}
-          >
+          <div ref={block1Ref} className={`${styles.block} ${styles.blockOdd}`}>
             <div className={styles.textSide}>
+              <span className={styles.kicker}>{t("block1_kicker")}</span>
               <h3 className={styles.blockTitle}>{t("block1_title")}</h3>
               <p className={styles.blockText}>{t("block1_text")}</p>
             </div>
@@ -74,16 +72,15 @@ export function AboutSection() {
               <span className={styles.blobEmoji}>🌺</span>
             </div>
             <div className={styles.textSide}>
+              <span className={styles.kicker}>{t("block2_kicker")}</span>
               <h3 className={styles.blockTitle}>{t("block2_title")}</h3>
               <p className={styles.blockText}>{t("block2_text")}</p>
             </div>
           </div>
 
-          <div
-            ref={block3Ref}
-            className={`${styles.block} ${styles.blockOdd}`}
-          >
+          <div ref={block3Ref} className={`${styles.block} ${styles.blockOdd}`}>
             <div className={styles.textSide}>
+              <span className={styles.kicker}>{t("block3_kicker")}</span>
               <h3 className={styles.blockTitle}>{t("block3_title")}</h3>
               <p className={styles.blockText}>{t("block3_text")}</p>
             </div>
