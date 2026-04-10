@@ -33,3 +33,6 @@ export async function POST(req: Request) {
 
   return NextResponse.json({ requestId });
 }
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;

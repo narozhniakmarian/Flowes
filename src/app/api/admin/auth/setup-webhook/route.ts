@@ -35,3 +35,6 @@ export async function GET(req: Request) {
   const data = await res.json();
   return NextResponse.json({ webhookUrl, telegramResponse: data });
 }
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;

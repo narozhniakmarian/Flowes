@@ -41,7 +41,7 @@ export default function ProductsGrid({ initialProducts }: ProductsGridProps) {
 
   const refreshProducts = async () => {
     try {
-      const res = await fetch("/api/products");
+      const res = await fetch("/api/admin/products");
       if (res.ok) {
         const data = await res.json();
         setProducts(data);
@@ -55,7 +55,9 @@ export default function ProductsGrid({ initialProducts }: ProductsGridProps) {
     if (!confirm("Ви впевнені, що хочете видалити цей товар?")) return;
 
     const deletePromise = async () => {
-      const res = await fetch(`/api/products/${id}`, { method: "DELETE" });
+      const res = await fetch(`/api/admin/products/${id}`, {
+        method: "DELETE",
+      });
       if (!res.ok) {
         const data = await res.json();
         throw new Error(data.error || "Помилка видалення");

@@ -1,3 +1,7 @@
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+export const fetchCache = 'force-no-store';
+
 import { LanguageProvider } from "@/providers/LanguageProvider";
 import { CartProvider } from "@/providers/CartProvider";
 import { CartDrawer } from "@/components/Cart/CartDrawer";

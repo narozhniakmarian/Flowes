@@ -57,3 +57,6 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
     return NextResponse.json({ error: "Failed to update gallery image" }, { status: 500 });
   }
 }
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;

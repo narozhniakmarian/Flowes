@@ -56,7 +56,10 @@ export default function OrdersList({ initialOrders }: OrdersListProps) {
         body: JSON.stringify({ status: newStatus }),
       });
 
-      if (!response.ok) throw new Error("Failed to update status");
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to update status");
+      }
 
       setOrders((prev) =>
         prev.map((o) => (o._id === id ? { ...o, status: newStatus } : o)),

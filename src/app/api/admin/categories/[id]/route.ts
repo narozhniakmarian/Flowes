@@ -5,9 +5,10 @@ import { verifyAdminSession } from "@/lib/session";
 
 export async function PUT(
   req: NextRequest,
-  { params }: { params: { id: string } },
+  props: { params: Promise<{ id: string }> },
 ) {
   try {
+    const params = await props.params;
     const isAuthenticated = await verifyAdminSession();
     if (!isAuthenticated) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -16,9 +17,16 @@ export async function PUT(
     const body = await req.json();
     await dbConnect();
 
-    const category = await Category.findOneAndUpdate({ id: params.id }, body, {
+    // Try finding by _id first, then by custom 'id' string
+    let category = await Category.findByIdAndUpdate(params.id, body, {
       new: true,
     });
+
+    if (!category) {
+      category = await Category.findOneAndUpdate({ id: params.id }, body, {
+        new: true,
+      });
+    }
 
     if (!category) {
       return NextResponse.json(
@@ -39,16 +47,23 @@ export async function PUT(
 
 export async function DELETE(
   req: Request,
-  { params }: { params: { id: string } },
+  props: { params: Promise<{ id: string }> },
 ) {
   try {
+    const params = await props.params;
     const isAuthenticated = await verifyAdminSession();
     if (!isAuthenticated) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     await dbConnect();
-    const category = await Category.findOneAndDelete({ id: params.id });
+
+    // Try deleting by _id first, then by custom 'id' string
+    let category = await Category.findByIdAndDelete(params.id);
+
+    if (!category) {
+      category = await Category.findOneAndDelete({ id: params.id });
+    }
 
     if (!category) {
       return NextResponse.json(
@@ -66,3 +81,6 @@ export async function DELETE(
     );
   }
 }
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;

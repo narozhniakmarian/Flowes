@@ -20,3 +20,6 @@ export async function GET(req: Request) {
 
   return NextResponse.json({ status });
 }
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;

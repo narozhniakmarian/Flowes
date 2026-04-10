@@ -19,7 +19,11 @@ interface CategoryFormProps {
   onSuccess: () => void;
 }
 
-export default function CategoryForm({ category, onClose, onSuccess }: CategoryFormProps) {
+export default function CategoryForm({
+  category,
+  onClose,
+  onSuccess,
+}: CategoryFormProps) {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState<Partial<ICategory>>(
     category || {
@@ -27,7 +31,7 @@ export default function CategoryForm({ category, onClose, onSuccess }: CategoryF
       name_pl: "",
       slug: "",
       order: 0,
-    }
+    },
   );
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -35,7 +39,9 @@ export default function CategoryForm({ category, onClose, onSuccess }: CategoryF
     setLoading(true);
 
     const savePromise = async () => {
-      const url = category?._id ? `/api/categories/${category._id}` : "/api/categories";
+      const url = category?._id
+        ? `/api/admin/categories/${category._id}`
+        : "/api/admin/categories";
       const method = category?._id ? "PUT" : "POST";
 
       const res = await fetch(url, {
@@ -76,8 +82,19 @@ export default function CategoryForm({ category, onClose, onSuccess }: CategoryF
             {category ? "Редагувати категорію" : "Додати категорію"}
           </h2>
           <button className={styles.closeBtn} onClick={onClose}>
-            <svg width={24} height={24} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            <svg
+              width={24}
+              height={24}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           </button>
         </div>
@@ -86,24 +103,30 @@ export default function CategoryForm({ category, onClose, onSuccess }: CategoryF
           <div className={styles.form}>
             <div className={styles.field}>
               <label className={styles.label}>
-                <span className={`${styles.langBadge} ${styles.ua}`}>UA</span> Назва (укр)
+                <span className={`${styles.langBadge} ${styles.ua}`}>UA</span>{" "}
+                Назва (укр)
               </label>
               <input
                 className={styles.input}
                 value={formData.name_ua}
-                onChange={(e) => setFormData({ ...formData, name_ua: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, name_ua: e.target.value })
+                }
                 required
               />
             </div>
 
             <div className={styles.field}>
               <label className={styles.label}>
-                <span className={`${styles.langBadge} ${styles.pl}`}>PL</span> Назва (пол)
+                <span className={`${styles.langBadge} ${styles.pl}`}>PL</span>{" "}
+                Назва (пол)
               </label>
               <input
                 className={styles.input}
                 value={formData.name_pl}
-                onChange={(e) => setFormData({ ...formData, name_pl: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, name_pl: e.target.value })
+                }
                 required
               />
             </div>
@@ -113,7 +136,9 @@ export default function CategoryForm({ category, onClose, onSuccess }: CategoryF
               <input
                 className={styles.input}
                 value={formData.slug}
-                onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, slug: e.target.value })
+                }
                 placeholder="наприклад: bukety-troyand"
               />
             </div>
@@ -124,16 +149,29 @@ export default function CategoryForm({ category, onClose, onSuccess }: CategoryF
                 className={styles.input}
                 type="number"
                 value={formData.order}
-                onChange={(e) => setFormData({ ...formData, order: parseInt(e.target.value) || 0 })}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    order: parseInt(e.target.value) || 0,
+                  })
+                }
               />
             </div>
           </div>
 
           <div className={styles.formActions}>
-            <button type="button" className={styles.cancelBtn} onClick={onClose}>
+            <button
+              type="button"
+              className={styles.cancelBtn}
+              onClick={onClose}
+            >
               Скасувати
             </button>
-            <button type="submit" className={styles.submitBtn} disabled={loading}>
+            <button
+              type="submit"
+              className={styles.submitBtn}
+              disabled={loading}
+            >
               Зберегти
             </button>
           </div>

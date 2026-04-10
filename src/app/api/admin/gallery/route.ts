@@ -60,3 +60,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Failed to upload gallery image" }, { status: 500 });
   }
 }
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;

@@ -73,3 +73,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Failed to create product" }, { status: 500 });
   }
 }
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;

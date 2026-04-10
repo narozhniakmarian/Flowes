@@ -244,8 +244,8 @@ export default function ProductForm({
 
     const savePromise = async () => {
       const url = product?._id
-        ? `/api/products/${product._id}`
-        : "/api/products";
+        ? `/api/admin/products/${product._id}`
+        : "/api/admin/products";
       const method = product?._id ? "PUT" : "POST";
 
       const res = await fetch(url, {

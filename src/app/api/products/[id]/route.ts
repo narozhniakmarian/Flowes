@@ -52,3 +52,6 @@ export async function DELETE(
     );
   }
 }
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;

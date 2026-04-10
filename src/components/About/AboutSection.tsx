@@ -1,12 +1,20 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useSyncExternalStore } from "react";
 import { useTranslations } from "@/lib/useTranslations";
 import styles from "./AboutSection.module.css";
 
+const subscribe = () => () => {};
+const getSnapshot = () => true;
+const getServerSnapshot = () => false;
+
 export function AboutSection() {
   const t = useTranslations("about");
-  const isClient = typeof window !== 'undefined';
+  const isClient = useSyncExternalStore(
+    subscribe,
+    getSnapshot,
+    getServerSnapshot,
+  );
 
   const block1Ref = useRef<HTMLDivElement>(null);
   const block2Ref = useRef<HTMLDivElement>(null);
@@ -48,7 +56,10 @@ export function AboutSection() {
         </header>
 
         <div className={styles.blocks}>
-          <div ref={block1Ref} className={`${styles.block} ${styles.blockOdd} ${isClient ? "" : styles.blockVisible}`}>
+          <div
+            ref={block1Ref}
+            className={`${styles.block} ${styles.blockOdd} ${isClient ? "" : styles.blockVisible}`}
+          >
             <div className={styles.textSide}>
               <span className={styles.kicker}>{t("block1_kicker")}</span>
               <h3 className={styles.blockTitle}>{t("block1_title")}</h3>
@@ -79,7 +90,10 @@ export function AboutSection() {
             </div>
           </div>
 
-          <div ref={block3Ref} className={`${styles.block} ${styles.blockOdd} ${isClient ? "" : styles.blockVisible}`}>
+          <div
+            ref={block3Ref}
+            className={`${styles.block} ${styles.blockOdd} ${isClient ? "" : styles.blockVisible}`}
+          >
             <div className={styles.textSide}>
               <span className={styles.kicker}>{t("block3_kicker")}</span>
               <h3 className={styles.blockTitle}>{t("block3_title")}</h3>
