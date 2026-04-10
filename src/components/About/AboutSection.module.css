@@ -51,16 +51,28 @@
   gap: 48px;
   align-items: center;
 
-  opacity: 0;
+  opacity: 1;
+  transform: translateX(0);
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-.blockOdd {
-  transform: translateX(-60px);
+@media (prefers-reduced-motion: no-preference) {
+  .block {
+    opacity: 0;
+  }
+  
+  .blockOdd {
+    transform: translateX(-60px);
+  }
+
+  .blockEven {
+    transform: translateX(60px);
+  }
 }
 
-.blockEven {
-  transform: translateX(60px);
+.blockVisible {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
 }
 
 
